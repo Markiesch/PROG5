@@ -1,0 +1,7 @@
+.vs
+.idea
+.vscode
+
+[Dd]ebug/
+[Bb]in/
+[Oo]bj/
