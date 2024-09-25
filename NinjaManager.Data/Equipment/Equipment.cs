@@ -1,4 +1,6 @@
-﻿namespace NinjaManager.Data;
+﻿using System.Collections.Generic;
+
+namespace NinjaManager.Data;
 
 public class Equipment
 {

@@ -4,6 +4,10 @@ namespace NinjaManager.Data;
 
 public class MainContext : DbContext
 {
+    public DbSet<Ninja> Ninjas { get; set; }
+    public DbSet<Equipment> Equipments { get; set; }
+    public DbSet<Category> Categories { get; set; }
+    
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=NinjaManager;Integrated Security=SSPI;TrustServerCertificate=True");

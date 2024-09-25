@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using NinjaManager.Data;
 using NinjaManager.Models;
 
 namespace NinjaManager.Controllers;
@@ -11,6 +12,13 @@ public class HomeController : Controller
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
+
+        using var context = new MainContext();
+
+        foreach (var item in context.Equipments.ToList())
+        {
+            Console.WriteLine(item.Name);
+        }
     }
 
     public IActionResult Index()
