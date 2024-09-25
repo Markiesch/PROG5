@@ -1,4 +1,4 @@
-﻿public class Equipment
+﻿public class EquipmentModel
 {
     public int EquipmentId { get; set; }
     public string Name { get; set; }
@@ -11,11 +11,11 @@
     public EquipmentCategory Category { get; set; }
 
     // Relationship with Ninja (Many-to-Many)
-    public virtual ICollection<Ninja> Ninjas { get; set; }
+    public virtual ICollection<NinjaModel> Ninjas { get; set; }
 
-    public Equipment()
+    public EquipmentModel()
     {
-        Ninjas = new List<Ninja>();
+        Ninjas = new List<NinjaModel>();
     }
 }
 
