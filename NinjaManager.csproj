@@ -20,4 +20,8 @@
       <Folder Include="NinjaManager.Data\Equipment\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.4" />
+    </ItemGroup>
+
 </Project>
