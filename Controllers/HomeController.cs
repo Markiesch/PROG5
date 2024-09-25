@@ -12,13 +12,6 @@ public class HomeController : Controller
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
-
-        using var context = new MainContext();
-
-        foreach (var item in context.Equipments.ToList())
-        {
-            Console.WriteLine(item.Name);
-        }
     }
 
     public IActionResult Index()

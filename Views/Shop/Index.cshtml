@@ -1,0 +1,22 @@
+﻿<div class="container shop-container">
+    @foreach (var item in Model)
+    {
+        <div class="card-container">
+            <div class="card">
+                <div class="price-container">
+                    <img class="price-icon" src="/Image/element/coins.png" alt="" />
+                    <p>@item.Price</p>
+                </div>
+                <img class="cover-image" src="@item.Name" alt="@item.Name" />
+                <div class="details-container">
+                    <p class="item-name">@item.Name</p>
+                    <div>
+                        <div>@item.Strength</div>
+                        <div>@item.Intelligence</div>
+                        <div>@item.Agility</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
