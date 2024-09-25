@@ -24,4 +24,10 @@
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="8.0.4" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="NinjaManager.Data\obj\NinjaManager.Data.csproj.nuget.dgspec.json" />
+      <_ContentIncludedByDefault Remove="NinjaManager.Data\obj\project.assets.json" />
+      <_ContentIncludedByDefault Remove="NinjaManager.Data\obj\project.packagespec.json" />
+    </ItemGroup>
+
 </Project>
