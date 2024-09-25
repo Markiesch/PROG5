@@ -6,4 +6,18 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Update="NinjaManager.Data\Ninja.cs">
+        <Link>ClassLibrary1\Ninja.cs</Link>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="NinjaManager.Data\Equipment\" />
+    </ItemGroup>
+
 </Project>
