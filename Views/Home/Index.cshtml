@@ -1,44 +1,19 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NinjaManager</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+﻿<header class="container">
+    <h1>NinjaManager</h1>
+    <button class="btn">Nieuwe Ninja</button>
+</header>
 
-<div class="header">NinjaManager</div>
-
-<button class="new-ninja-btn">Nieuwe Ninja</button>
-
-<div class="container">
-    <!-- Ninja Card 1 -->
+<div class="container home">
     <div class="ninja-card">
         <div class="resources">
-            <span><img src="/Image/pearl_01a.png" alt="Red"> 300</span>
-            <span><img src="/Image/pearl_01b.png" alt="Green"> 300</span>
-            <span><img src="/Image/pearl_01c.png" alt="Blue"> 300</span>
-            <span><img src="Image/pearl_01d.png" alt="Yellow"> 300</span>
+            <div><img src="/Image/pearl_01a.png" alt="Red"> 300</div>
+            <div><img src="/Image/pearl_01b.png" alt="Green"> 300</div>
+            <div><img src="/Image/pearl_01c.png" alt="Blue"> 300</div>
+            <div><img src="Image/pearl_01d.png" alt="Yellow"> 300</div>
         </div>
-        <img src="/Image/Ninjafoto.png" alt="Ninja">
-        <button class="select-button">Selecteer</button>
-    </div>
-
-    <!-- Ninja Card 2 (duplicate as needed) -->
-    <div class="ninja-card">
-        <div class="resources">
-            <span><img src="/Image/pearl_01a.png" alt="Red"> 300</span>
-            <span><img src="/Image/pearl_01b.png" alt="Green"> 300</span>
-            <span><img src="/Image/pearl_01c.png" alt="Blue"> 300</span>
-            <span><img src="Image/pearl_01d.png" alt="Yellow"> 300</span>
+        <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
+        <div class="ninja-card-actions">
+            <button class="btn btn-secondary">SELECTEER</button>
         </div>
-        <img src="/Image/Ninjafoto.png" alt="Ninja">
-        <button class="select-button">Selecteer</button>
     </div>
-
-    <!-- Add more ninja cards here -->
 </div>
-
-</body>
-</html>
