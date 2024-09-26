@@ -32,46 +32,46 @@ public class MainContext : DbContext
         
         modelBuilder.Entity<Equipment>().HasData(
             // Head
-            new Equipment { Id = 1, CategoryId = 1, Name = "Leather Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 2, CategoryId = 1, Name = "Iron Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 3, CategoryId = 1, Name = "Golden Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 4, CategoryId = 1, Name = "Diamond Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 5, CategoryId = 1, Name = "Mythic Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 1, CategoryId = 1, Img = "helmet_01a",  Name = "Leather Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 2, CategoryId = 1, Img = "helmet_01b",  Name = "Iron Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 3, CategoryId = 1, Img = "helmet_01c",  Name = "Golden Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 4, CategoryId = 1, Img = "helmet_01d",  Name = "Diamond Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 5, CategoryId = 1, Img = "helmet_01e",  Name = "Mythic Helmet", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
 
             // Necklaces
-            new Equipment { Id = 6, CategoryId = 2, Name = "Leather Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 7, CategoryId = 2, Name = "Iron Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 8, CategoryId = 2, Name = "Golden Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 9, CategoryId = 2, Name = "Diamond Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 10, CategoryId = 2, Name = "Mythic Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 6, CategoryId = 2, Img = "necklace_03a",  Name = "Leather Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 7, CategoryId = 2, Img = "necklace_03b",  Name = "Iron Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 8, CategoryId = 2, Img = "necklace_03c",  Name = "Golden Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 9, CategoryId = 2, Img = "necklace_03d",  Name = "Diamond Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 10, CategoryId = 2, Img = "necklace_03e",  Name = "Mythic Necklace", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
             
             // Chest
-            new Equipment { Id = 11, CategoryId = 3, Name = "Leather Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 12, CategoryId = 3, Name = "Iron Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 13, CategoryId = 3, Name = "Golden Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 14, CategoryId = 3, Name = "Diamond Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 15, CategoryId = 3, Name = "Mythic Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 11, CategoryId = 3, Img = "armor_01a",  Name = "Leather Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 12, CategoryId = 3, Img = "armor_01b",  Name = "Iron Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 13, CategoryId = 3, Img = "armor_01c",  Name = "Golden Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 14, CategoryId = 3, Img = "armor_01d",  Name = "Diamond Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 15, CategoryId = 3, Img = "armor_01e",  Name = "Mythic Chestplate", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
 
             // Hands
-            new Equipment { Id = 16, CategoryId = 4, Name = "Leather Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 17, CategoryId = 4, Name = "Iron Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 18, CategoryId = 4, Name = "Golden Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 19, CategoryId = 4, Name = "Diamond Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 20, CategoryId = 4, Name = "Mythic Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 16, CategoryId = 4, Img = "gloves_01a",  Name = "Leather Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 17, CategoryId = 4, Img = "gloves_01b",  Name = "Iron Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 18, CategoryId = 4, Img = "gloves_01c",  Name = "Golden Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 19, CategoryId = 4, Img = "gloves_01d",  Name = "Diamond Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 20, CategoryId = 4, Img = "gloves_01e",  Name = "Mythic Gloves", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
                 
             // Rings
-            new Equipment { Id = 21, CategoryId = 5, Name = "Leather Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 22, CategoryId = 5, Name = "Iron Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 23, CategoryId = 5, Name = "Golden Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 24, CategoryId = 5, Name = "Diamond Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 25, CategoryId = 5, Name = "Mythic Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 21, CategoryId = 5, Img = "ring_01a",  Name = "Leather Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 22, CategoryId = 5, Img = "ring_01b",  Name = "Iron Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 23, CategoryId = 5, Img = "ring_01c",  Name = "Golden Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 24, CategoryId = 5, Img = "ring_01d",  Name = "Diamond Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 25, CategoryId = 5, Img = "ring_01e",  Name = "Mythic Ring", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
                 
             // Boots
-            new Equipment { Id = 26, CategoryId = 6, Name = "Leather Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 27, CategoryId = 6, Name = "Iron Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 28, CategoryId = 6, Name = "Golden Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 29, CategoryId = 6, Name = "Diamond Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
-            new Equipment { Id = 30, CategoryId = 6, Name = "Mythic Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 }
+            new Equipment { Id = 26, CategoryId = 6, Img = "boots_01a",  Name = "Leather Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 27, CategoryId = 6, Img = "boots_01b",  Name = "Iron Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 28, CategoryId = 6, Img = "boots_01c",  Name = "Golden Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 29, CategoryId = 6, Img = "boots_01d",  Name = "Diamond Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 },
+            new Equipment { Id = 30, CategoryId = 6, Img = "boots_01e",  Name = "Mythic Boots", Price = 300, Strength = 0, Intelligence = 0, Agility = 0 }
         );
     }
 }
