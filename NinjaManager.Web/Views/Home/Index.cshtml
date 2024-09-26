@@ -4,16 +4,19 @@
 </header>
 
 <div class="container home">
-    <div class="ninja-card">
-        <div class="resources">
-            <div><img src="/Image/pearl_01a.png" alt="Red"> 300</div>
-            <div><img src="/Image/pearl_01b.png" alt="Green"> 300</div>
-            <div><img src="/Image/pearl_01c.png" alt="Blue"> 300</div>
-            <div><img src="Image/pearl_01d.png" alt="Yellow"> 300</div>
+    @foreach (var ninja in Model)
+    {
+        <div class="ninja-card">
+            <div class="resources">
+                <div><img src="/Image/pearl_01a.png" alt="Red"> 300</div>
+                <div><img src="/Image/pearl_01b.png" alt="Green"> 300</div>
+                <div><img src="/Image/pearl_01c.png" alt="Blue"> 300</div>
+                <div><img src="Image/pearl_01d.png" alt="Yellow"> 300</div>
+            </div>
+            <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
+            <div class="ninja-card-actions">
+                <a asp-controller="Ninja" asp-action="Index" class="btn btn-secondary">SELECTEER</a>
+            </div>
         </div>
-        <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
-        <div class="ninja-card-actions">
-            <a asp-controller="Ninja" asp-action="Index" class="btn btn-secondary">SELECTEER</a>
-        </div>
-    </div>
+    }
 </div>

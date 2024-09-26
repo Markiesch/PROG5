@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using NinjaManager.Data;
 using NinjaManager.Models;
 
 namespace NinjaManager.Controllers;
@@ -15,7 +16,11 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        using var context = new MainContext();
+
+        var ninjas = context.Ninjas.ToList();
+        
+        return View(ninjas);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
