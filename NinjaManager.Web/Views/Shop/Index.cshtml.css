@@ -8,15 +8,17 @@
     display: flex;
     flex-wrap: wrap;
     padding: 2.5rem;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .card-container {
     border-radius: .75rem;
-    padding: .75rem;
+    padding: 1rem;
     border: 5px solid var(--primary-color);
     background: white;
+    width: 300px;
     flex: 1 1 20rem;
+    
 }
 
 .card {
@@ -62,3 +64,5 @@
     padding: 1rem;
     font-weight: bold;
 }
+
+
