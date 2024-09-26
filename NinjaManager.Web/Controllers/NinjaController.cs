@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NinjaManager.Data;
 
 namespace NinjaManager.Controllers;
 
@@ -11,8 +12,18 @@ public class NinjaController : Controller
         _logger = logger;
     }
     
-    public IActionResult Index()
+    [Route("ninjas/{id}")]
+    public IActionResult Index(int id)
     {
-        return View();
+        using var context = new MainContext();
+
+        var ninja = context.Ninjas.Find(id);
+
+        if (ninja == null)
+        {
+            return NotFound("Ninja not found");
+        }
+        
+        return View(ninja);
     }
 }
