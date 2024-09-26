@@ -7,6 +7,7 @@ public class Equipment
     public int Id { get; set; }
     public int Price { get; set; }
     public string Name { get; set; }
+    public string Img { get; set; } 
     public int Strength { get; set; }
     public int Intelligence { get; set; }
     public int Agility { get; set; }
