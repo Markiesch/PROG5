@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using NinjaManager.Data;
 using NinjaManager.Models;
 
 namespace NinjaManager.Controllers;

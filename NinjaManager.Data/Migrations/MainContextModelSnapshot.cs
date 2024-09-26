@@ -7,7 +7,7 @@ using NinjaManager.Data;
 
 #nullable disable
 
-namespace NinjaManager.Migrations
+namespace NinjaManager.Data.Migrations
 {
     [DbContext(typeof(MainContext))]
     partial class MainContextModelSnapshot : ModelSnapshot

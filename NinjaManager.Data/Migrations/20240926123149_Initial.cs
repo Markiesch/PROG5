@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace NinjaManager.Migrations
+namespace NinjaManager.Data.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
@@ -13,7 +13,7 @@ namespace NinjaManager.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Category",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -22,11 +22,11 @@ namespace NinjaManager.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Category", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Ninja",
+                name: "Ninjas",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -36,11 +36,11 @@ namespace NinjaManager.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ninja", x => x.Id);
+                    table.PrimaryKey("PK_Ninjas", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Equipment",
+                name: "Equipments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -54,11 +54,11 @@ namespace NinjaManager.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Equipment", x => x.Id);
+                    table.PrimaryKey("PK_Equipments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Equipment_Category_CategoryId",
+                        name: "FK_Equipments_Categories_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Category",
+                        principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -74,21 +74,21 @@ namespace NinjaManager.Migrations
                 {
                     table.PrimaryKey("PK_EquipmentNinja", x => new { x.EquipmentsId, x.NinjasId });
                     table.ForeignKey(
-                        name: "FK_EquipmentNinja_Equipment_EquipmentsId",
+                        name: "FK_EquipmentNinja_Equipments_EquipmentsId",
                         column: x => x.EquipmentsId,
-                        principalTable: "Equipment",
+                        principalTable: "Equipments",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EquipmentNinja_Ninja_NinjasId",
+                        name: "FK_EquipmentNinja_Ninjas_NinjasId",
                         column: x => x.NinjasId,
-                        principalTable: "Ninja",
+                        principalTable: "Ninjas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "Category",
+                table: "Categories",
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
@@ -101,7 +101,7 @@ namespace NinjaManager.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Equipment",
+                table: "Equipments",
                 columns: new[] { "Id", "Agility", "CategoryId", "Intelligence", "Name", "Price", "Strength" },
                 values: new object[,]
                 {
@@ -138,14 +138,14 @@ namespace NinjaManager.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Equipment_CategoryId",
-                table: "Equipment",
-                column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_EquipmentNinja_NinjasId",
                 table: "EquipmentNinja",
                 column: "NinjasId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipments_CategoryId",
+                table: "Equipments",
+                column: "CategoryId");
         }
 
         /// <inheritdoc />
@@ -155,13 +155,13 @@ namespace NinjaManager.Migrations
                 name: "EquipmentNinja");
 
             migrationBuilder.DropTable(
-                name: "Equipment");
+                name: "Equipments");
 
             migrationBuilder.DropTable(
-                name: "Ninja");
+                name: "Ninjas");
 
             migrationBuilder.DropTable(
-                name: "Category");
+                name: "Categories");
         }
     }
 }

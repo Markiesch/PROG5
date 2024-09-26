@@ -8,11 +8,11 @@ using NinjaManager.Data;
 
 #nullable disable
 
-namespace NinjaManager.Migrations
+namespace NinjaManager.Data.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20240925201928_dbset")]
-    partial class dbset
+    [Migration("20240926123149_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
