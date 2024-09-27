@@ -15,8 +15,22 @@
             </div>
             <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
             <div class="ninja-card-actions">
-                <a asp-controller="Ninja" asp-action="Index" class="btn btn-secondary">SELECTEER</a>
+                <a asp-controller="Ninja" asp-action="Index" asp-route-id="@ninja.Id" class="btn btn-secondary">SELECTEER</a>
             </div>
         </div>
     }
+    
+        <div class="ninja-card ninja-card-empty">
+            @if (Model.Count == 0)
+            {
+                <h2>NOG GEEN NINJA'S</h2>
+            } else 
+            {
+                <h2>NIEUWE NINJA</h2>
+            }
+            <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
+            <div class="ninja-card-actions">
+                <a asp-controller="Ninja" asp-action="Index" class="btn btn-secondary">NINJA TOEVOEGEN</a>
+            </div>
+        </div>
 </div>
