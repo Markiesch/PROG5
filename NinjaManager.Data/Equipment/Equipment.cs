@@ -10,6 +10,7 @@ public class Equipment
     public string Img { get; set; } 
     public int Strength { get; set; }
     public int Intelligence { get; set; }
+    public string Rarity { get; set; }  
     public int Agility { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
