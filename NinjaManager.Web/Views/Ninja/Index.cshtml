@@ -1,5 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Ninja " + Model.Name;
+﻿@model NinjaManager.Web.Models.NinjaViewModel;
+
+@{
+    ViewData["Title"] = "Ninja " + Model.Ninja.Name;
 }
 
 <header class="container ninja-manager-header">
@@ -13,68 +15,50 @@
 
 <div class="container ninja-shop">
     <div class="ninja-items-grid">
-        <div class="ninja-item-container">
-            <div class="ninja-item mythic">
-                <img src="/Image/helmet_01e.png" alt="Mythic Helmet">
-                <div class="ninja-item-details">
-                    <h2>MYTHIC HELMET</h2>
-                    <div class="ninja-cost">
-                        <span><img src="/Image/pearl_01a.png" alt="red pearl"> 300</span>
-                        <span><img src="/Image/pearl_01b.png" alt="green pearl"> 300</span>
-                        <span><img src="/Image/pearl_01c.png" alt="blue pearl"> 300</span>
-                        <span><img src="/Image/pearl_01d.png" alt="yellow pearl"> 300</span>
+        @{
+            foreach (var item in Model.Categories)
+            {
+                var equipment = Model.Ninja.Equipments.Find(e =>
+                {
+                    Console.WriteLine(e);
+                    return e.Category.Id == item.Id;
+                });
+
+                if (equipment == null)
+                {
+                    <div class="ninja-item empty">
+                        <h2>EMPTY</h2>
+                        <a class="open-shop" href="/shop">OPEN SHOP</a>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="ninja-item green">
-            <h2>EMERALD NECKLACE</h2>
-            <img src="/Image/necklace_03a.png" alt="Emerald Necklace">
-            <div class="ninja-cost">
-                <span><img src="/Image/pearl_01a.png" alt="red pearl"> 300</span>
-                <span><img src="/Image/pearl_01b.png" alt="green pearl"> 300</span>
-                <span><img src="/Image/pearl_01c.png" alt="blue pearl"> 300</span>
-                <span><img src="/Image/pearl_01d.png" alt="yellow pearl"> 300</span>
-            </div>
-        </div>
-        <div class="ninja-item empty">
-            <h2>EMPTY</h2>
-            <a class="open-shop" href="/shop">OPEN SHOP</a>
-        </div>
-        <div class="ninja-item yellow">
-            <h2>GOLDEN RING</h2>
-            <img src="/Image/ring_01d.png" alt="Golden Ring">
-            <div class="ninja-cost">
-                <span><img src="/Image/pearl_01a.png" alt="red pearl"> 300</span>
-                <span><img src="/Image/pearl_01b.png" alt="green pearl"> 300</span>
-                <span><img src="/Image/pearl_01c.png" alt="blue pearl"> 300</span>
-                <span><img src="/Image/pearl_01d.png" alt="yellow pearl"> 300</span>
-            </div>
-        </div>
-        <div class="ninja-item orange">
-            <h2>LEATHER BOOTS</h2>
-            <img src="/Image/boots_01a.png" alt="Leather Boots">
-            <div class="ninja-cost">
-                <span><img src="/Image/pearl_01a.png" alt="red pearl"> 300</span>
-                <span><img src="/Image/pearl_01b.png" alt="green pearl"> 300</span>
-                <span><img src="/Image/pearl_01c.png" alt="blue pearl"> 300</span>
-                <span><img src="/Image/pearl_01d.png" alt="yellow pearl"> 300</span>
-            </div>
-        </div>
-        <div class="ninja-item blue">
-            <h2>DIAMOND GLOVES</h2>
-            <img src="/Image/gloves_01c.png" alt="Diamond Gloves">
-            <div class="ninja-cost">
-                <span><img src="/Image/pearl_01a.png" alt="red pearl"> 300</span>
-                <span><img src="/Image/pearl_01b.png" alt="green pearl"> 300</span>
-                <span><img src="/Image/pearl_01c.png" alt="blue pearl"> 300</span>
-                <span><img src="/Image/pearl_01d.png" alt="yellow pearl"> 300</span>
-            </div>
-        </div>
+                }
+                else
+                {
+                    <div class="ninja-item-container">
+                        <div class="ninja-item mythic">
+                            <img src="/Image/helmet_01e.png" alt="Mythic Helmet">
+                            <div class="ninja-item-details">
+                                <h2>@equipment.Name</h2>
+                                <div class="ninja-cost">
+                                    <span>
+                                        <img src="/Image/pearl_01a.png" alt="red pearl">@equipment.Strength
+                                    </span>
+                                    <span>
+                                        <img src="/Image/pearl_01b.png" alt="green pearl">@equipment.Intelligence
+                                    </span>
+                                    <span>
+                                        <img src="/Image/pearl_01c.png" alt="blue pearl">@equipment.Agility
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
     </div>
 
     <div class="ninja-card">
-        <h1>@Model.Name</h1>
+        <h1>@Model.Ninja.Name</h1>
         <div class="ninja-resources">
             <span><img src="/Image/pearl_01a.png" alt="red pearl"> 300</span>
             <span><img src="/Image/pearl_01b.png" alt="green pearl"> 300</span>
