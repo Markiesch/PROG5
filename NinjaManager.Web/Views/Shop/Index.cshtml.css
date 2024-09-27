@@ -121,6 +121,12 @@ img.cover-image:hover {
     background-color: var(--mythic-background); 
 }
 
+.attribute {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 
 
 
