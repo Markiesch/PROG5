@@ -56,6 +56,13 @@
     margin-right: .25rem;
 }
 
+.ninja-name {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding: 1rem 0;
+}
+
 .ninja-card-actions {
     display: flex;
     align-items: baseline;
