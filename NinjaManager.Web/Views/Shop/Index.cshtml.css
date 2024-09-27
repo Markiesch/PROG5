@@ -64,5 +64,34 @@
     padding: 1rem;
     font-weight: bold;
 }
+img.dot {
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+  
+}
+
+img.cover-image{
+    width: 105px;
+    height: 105px;
+    padding: 20px;
+}
+
+img.cover-image:hover {
+    transform: scale(1.1);
+}
+
+.background-container {
+    position: relative;
+    z-index: -1;
+    width: 138px;
+    height: 237px;
+    left: 289px;
+    top: 324px;
+    background: var(--blue-background); 
+    border-radius: 137px;
+}
+
+
 
 
