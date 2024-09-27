@@ -40,6 +40,7 @@
     grid-template-columns: 2fr 1fr;
     gap: 1rem;
     width: 100%;
+    flex-grow: 1;
 }
 
 .ninja-items-grid {
@@ -63,6 +64,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     padding: 20px;
+    height: 100%;
 }
 
 .ninja-item-details {
@@ -83,29 +85,27 @@
     margin-bottom: 10px;
 }
 
+.ninja-item.leather {
+    background-color: var(--orange-background);
+}
+
+.ninja-item.empty,
+.ninja-item.iron {
+    background-color: var(--grey-background);
+}
+
+.ninja-item.gold {
+    background-color: var(--yellow-background);
+}
+
+.ninja-item.diamond {
+    background-color: var(--blue-background);
+}
+
 .ninja-item.mythic {
     background-color: var(--mythic-background);
 }
 
-.ninja-item.green {
-    background-color: var(--green-background);
-}
-
-.ninja-item.yellow {
-    background-color: var(--yellow-background);
-}
-
-.ninja-item.orange {
-    background-color: var(--orange-background);
-}
-
-.ninja-item.blue {
-    background-color: var(--blue-background);
-}
-
-.ninja-item.empty {
-    background-color: var(--grey-background);
-}
 
 .ninja-cost {
     display: flex;
