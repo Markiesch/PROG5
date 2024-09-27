@@ -22,14 +22,31 @@
 }
 
 .card {
-    border-radius: .5rem;
-    background: var(--mythic-background);
+    position: relative;
+    z-index: 1;
+    background-color: var(--mythic-background);
     border: 2px solid var(--primary-color);
+    border-radius: .5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
 }
+
+.card::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 26%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    border-radius: 40rem;
+    background-color: black;
+}
+
+
 
 .price-container {
     border-radius: 5rem;
@@ -81,16 +98,30 @@ img.cover-image:hover {
     transform: scale(1.1);
 }
 
-.background-container {
-    position: relative;
-    z-index: -1;
-    width: 138px;
-    height: 237px;
-    left: 289px;
-    top: 324px;
-    background: var(--blue-background); 
-    border-radius: 137px;
+
+.card.leather {
+    background-color: var(--red-background); 
+
 }
+
+.card.iron {
+    background-color: var(--grey-background);    
+}
+
+.card.diamond {
+    background-color: var(--blue-background);    
+}
+
+.card.gold {
+    background-color: var(--yellow-background);
+    
+}
+
+.card.mythic {
+    background-color: var(--mythic-background); 
+}
+
+
 
 
 
