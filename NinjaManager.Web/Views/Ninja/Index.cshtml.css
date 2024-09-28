@@ -191,9 +191,49 @@
     background: var(--blue-foreground);
 }
 
+/*Create an animation of a spritesheet that has 4 images next to eachother */
+@keyframes ninja-animation {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: 0 0;
+    }
+    25.01% {
+        background-position: 100% 0;
+    }
+    50% {
+        background-position: 100% 0;
+    }
+    50.01% {
+        background-position: 200%;
+    }
+    75% {
+        background-position: 200%;
+    }
+    75.01% {
+        background-position: 300%;
+    }
+    100% {
+        background-position: 300% 0;
+    }
+}
+
+.ninja-img-container {
+    overflow: hidden;
+}
+
+.ninja-img-container {
+    width: 100%;
+    background-image: url(/Image/ninja/idle.png);
+    background-size: 400%;
+    animation: ninja-animation 500ms infinite;
+}
+
 .ninja-card img.ninja-img {
-    width: 80%;
-    margin: 0 auto;
+    display: block;
+    width: 400%;
+    opacity: 0;
 }
 
 .ninja-resources {
