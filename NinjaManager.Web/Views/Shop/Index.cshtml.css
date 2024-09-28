@@ -1,10 +1,8 @@
-
 .shop-container {
     width: 100%;
     background: var(--blue-background);
     border: 5px solid var(--primary-color);
     border-radius: 1.25rem;
-
     display: flex;
     flex-wrap: wrap;
     padding: 2.5rem;
@@ -14,18 +12,17 @@
 .card-container {
     border-radius: .75rem;
     padding: 1rem;
-    border: 5px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     background: white;
     width: 300px;
-    flex: 1 1 20rem;
-    
+    flex: 1 1 15rem;
 }
 
 .card {
     position: relative;
     z-index: 1;
-    background-color: var(--mythic-background);
-    border: 2px solid var(--primary-color);
+    background-color: var(--background);
+    border: 2px solid var(--foreground);
     border-radius: .5rem;
     display: flex;
     flex-direction: column;
@@ -37,19 +34,32 @@
     z-index: -1;
     content: "";
     position: absolute;
-    width: 26%;
+    width: 60%;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    height: 70%;
+    top: 5rem;
+    bottom: 1rem;
+    transform: translateX(-50%);
     border-radius: 40rem;
-    background-color: black;
+    background-color: var(--foreground);
 }
 
+.card-container input {
+    display: none;
+}
 
+.card-header {
+    display: flex;
+}
+
+.card-header .btn {
+    border-radius: 0 5rem 5rem 0;
+    background: radial-gradient(50% 50% at 50% 50%, #F5E8AB 0%, #FDD170 93.5%);
+    border: 1px solid #874315;
+    border-left: none;
+}
 
 .price-container {
-    border-radius: 5rem;
+    border-radius:  5rem 0 0 5rem;
     display: inline-flex;
     background: radial-gradient(50% 50% at 50% 50%, #F5E8AB 0%, #FDD170 93.5%);
     border: 1px solid #874315;
@@ -63,7 +73,7 @@
 
 .details-container {
     background: white;
-    border: 5px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
     border-radius: .5rem;
     width: 100%;
 }
@@ -96,29 +106,6 @@ img.cover-image{
 
 img.cover-image:hover {
     transform: scale(1.1);
-}
-
-
-.card.leather {
-    background-color: var(--red-background); 
-
-}
-
-.card.iron {
-    background-color: var(--grey-background);    
-}
-
-.card.diamond {
-    background-color: var(--blue-background);    
-}
-
-.card.gold {
-    background-color: var(--yellow-background);
-    
-}
-
-.card.mythic {
-    background-color: var(--mythic-background); 
 }
 
 .attribute {
