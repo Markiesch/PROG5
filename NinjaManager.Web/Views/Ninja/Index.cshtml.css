@@ -37,7 +37,7 @@
 
 .ninja-shop {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 2fr;
     gap: 1rem;
     width: 100%;
     flex-grow: 1;
@@ -45,17 +45,11 @@
 
 .ninja-items-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: .5rem;
     flex: 1;
-}
-
-.ninja-item-container {
-    border-radius: 1rem;
-    border: 5px solid var(--primary-color);
-    background: white;
-    padding: .75rem;
+    padding-bottom: 1rem;
 }
 
 .ninja-item.leather {
@@ -123,9 +117,8 @@
     border-radius: .25rem;
     overflow: hidden;
     border: 2px solid var(--primary-color);
-    margin: 1rem;
+    margin: 0.5rem;
 }
-
 
 .ninja-item-img-container {
     flex-grow: 1;
