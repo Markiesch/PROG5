@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using NinjaManager.Data;
 using NinjaManager.Web.Models;
 
-namespace NinjaManager.Controllers;
+namespace NinjaManager.Web.Controllers;
 
 public class NinjaController : Controller
 {
@@ -43,10 +43,8 @@ public class NinjaController : Controller
         newNinja.Currency = 999;
         newNinja.Name = Name;
         var res = context.Ninjas.Add(newNinja);
-        
-        context.SaveChanges();
 
-        Console.WriteLine(res.Entity.Id);
+        context.SaveChanges();
 
         return RedirectToAction("Index", new { id = res.Entity.Id });
     }

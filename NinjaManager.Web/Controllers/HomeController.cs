@@ -1,9 +1,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using NinjaManager.Data;
-using NinjaManager.Models;
+using NinjaManager.Web.Models;
 
-namespace NinjaManager.Controllers;
+namespace NinjaManager.Web.Controllers;
 
 public class HomeController : Controller
 {

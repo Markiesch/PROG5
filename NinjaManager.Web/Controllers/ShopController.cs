@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NinjaManager.Data;
 
-namespace NinjaManager.Controllers;
+namespace NinjaManager.Web.Controllers;
 
 public class ShopController : Controller
 {
