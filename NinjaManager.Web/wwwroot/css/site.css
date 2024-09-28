@@ -116,3 +116,28 @@ header {
     animation: fadeIn 0.4s;
 }
 
+.leather {
+    --background: var(--orange-background);
+    --foreground: var(--orange-foreground);
+}
+
+.empty,
+.iron {
+    --background: var(--grey-background);
+    --foreground: var(--grey-foreground);
+}
+
+.gold {
+    --background: var(--yellow-background);
+    --foreground: var(--yellow-foreground);
+}
+
+.diamond {
+    --background: var(--blue-background);
+    --foreground: var(--blue-foreground);
+}
+
+.mythic {
+    --background: var(--mythic-background);
+    --foreground: var(--mythic-foreground);
+}

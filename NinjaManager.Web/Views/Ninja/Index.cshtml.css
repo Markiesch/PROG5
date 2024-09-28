@@ -51,32 +51,6 @@
     padding-bottom: 1rem;
 }
 
-.ninja-item.leather {
-    --background: var(--orange-background);
-    --foreground: var(--orange-foreground);
-}
-
-.ninja-item.empty,
-.ninja-item.iron {
-    --background: var(--grey-background);
-    --foreground: var(--grey-foreground);
-}
-
-.ninja-item.gold {
-    --background: var(--yellow-background);
-    --foreground: var(--yellow-foreground);
-}
-
-.ninja-item.diamond {
-    --background: var(--blue-background);
-    --foreground: var(--blue-foreground);
-}
-
-.ninja-item.mythic {
-    --background: var(--mythic-background);
-    --foreground: var(--mythic-foreground);
-}
-
 .ninja-item {
     background-color: var(--background);
     border-radius: 10px;
@@ -161,7 +135,6 @@
 .ninja-card {
     background-color: #A0D8F6;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex: 1;
     display: flex;
