@@ -13,15 +13,32 @@ public class NinjaViewModel
     public Ninja Ninja { get; set; }
     public List<Category> Categories { get; set; }
     
-    public List<Equipment?> Inventory {
+    public List<NinjaEquipment> Inventory {
         get
         {
-            return Categories.Select(item => Ninja.Equipments
-                .Find(e => e.Id == item.Id)).ToList();
+            var inventory = new List<NinjaEquipment>();
+            foreach (var category in Categories)
+            {
+                var equipment = Ninja.Equipments.FirstOrDefault(e => e.CategoryId == category.Id);
+                inventory.Add(new NinjaEquipment(category, equipment));
+            }
+            return inventory;
         } 
     }
 
-    public int TotalStrength => Inventory.Sum(e => e?.Strength ?? 0);
-    public int TotalIntelligence => Inventory.Sum(e => e?.Intelligence ?? 0);
-    public int TotalAgility => Inventory.Sum(e => e?.Agility ?? 0);
+    public int TotalStrength => Inventory.Sum(e => e.Equipment?.Strength ?? 0);
+    public int TotalIntelligence => Inventory.Sum(e => e.Equipment?.Intelligence ?? 0);
+    public int TotalAgility => Inventory.Sum(e => e.Equipment?.Agility ?? 0);
+}
+
+public class NinjaEquipment
+{
+    public NinjaEquipment(Category category, Equipment? equipment)
+    {
+        Category = category;
+        Equipment = equipment;
+    }
+    
+    public Category Category { get; set; }
+    public Equipment? Equipment { get; set; }
 }

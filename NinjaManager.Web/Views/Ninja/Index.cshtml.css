@@ -46,6 +46,7 @@
 .ninja-items-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
     gap: 1rem;
     flex: 1;
 }
@@ -102,9 +103,9 @@
     position: absolute;
     left: 50%;
     bottom: 1rem;
+    top: 4rem;
     border-radius: 20rem;
     width: 60%;
-    height: 12.5rem;
     transform: translateX(-50%);
     background: var(--foreground);
 }
@@ -167,30 +168,52 @@
 
 .ninja-card {
     background-color: #A0D8F6;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
 }
 
-.ninja-card img.ninja {
-    width: 200px;
-    height: auto;
-    margin-bottom: 20px;
+.ninja-card::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    border-radius: 20rem;
+    width: 60%;
+    height: 80%;
+    transform: translateX(-50%);
+    background: var(--blue-foreground);
+}
+
+.ninja-card img.ninja-img {
+    width: 80%;
+    margin: 0 auto;
 }
 
 .ninja-resources {
     background-color: white;
-    display: inline-flex;
-    justify-content: center;
-    gap: 10px;
     border: 2px solid #000;
     border-radius: 10px;
+    padding: .5rem;
+}
 
+.ninja-resources > div {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .ninja-resources img {
     width: 20px;
     height: 20px;
+}
+
+.ninja-card-filler {
+    background: var(--primary-color);
+    flex-grow: 1;
 }

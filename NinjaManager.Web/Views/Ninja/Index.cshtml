@@ -15,13 +15,13 @@
 
 <div class="container ninja-shop">
     <div class="ninja-items-grid">
-        @foreach (var equipment in Model.Inventory)
+        @foreach (var item in Model.Inventory)
         {
-            if (equipment == null)
+            if (item.Equipment == null)
             {
                 <div class="ninja-item-container">
-
                     <div class="ninja-item empty">
+                        <h2 class="rarity-name">@item.Category.Name</h2>
                         <div class="ninja-item-img-container">
                         </div>
                         <div class="ninja-item-details">
@@ -34,22 +34,22 @@
             else
             {
                 <div class="ninja-item-container">
-                    <div class="ninja-item @equipment.Rarity.ToLower()">
-                        <h2 class="rarity-name">@equipment.Rarity</h2>
+                    <div class="ninja-item @item.Equipment.Rarity.ToLower()">
+                        <h2 class="rarity-name">@item.Equipment.Rarity</h2>
                         <div class="ninja-item-img-container">
-                            <img src="/Image/@(equipment.Img).png" alt="Mythic Helmet">
+                            <img src="/Image/@(item.Equipment.Img).png" alt="Mythic Helmet">
                         </div>
                         <div class="ninja-item-details">
-                            <h2 class="ninja-item-name">@equipment.Name</h2>
+                            <h2 class="ninja-item-name">@item.Equipment.Name</h2>
                             <div class="ninja-item-stats">
                                 <span>
-                                    <img src="/Image/pearl_01c.png" alt="red pearl">@equipment.Strength
+                                    <img src="/Image/pearl_01c.png" alt="red pearl">@item.Equipment.Strength
                                 </span>
                                 <span>
-                                    <img src="/Image/pearl_01d.png" alt="green pearl">@equipment.Intelligence
+                                    <img src="/Image/pearl_01d.png" alt="green pearl">@item.Equipment.Intelligence
                                 </span>
                                 <span>
-                                    <img src="/Image/pearl_01b.png" alt="blue pearl">@equipment.Agility
+                                    <img src="/Image/pearl_01b.png" alt="blue pearl">@item.Equipment.Agility
                                 </span>
                             </div>
                         </div>
@@ -63,19 +63,17 @@
     <div class="ninja-card">
         <h1>@Model.Ninja.Name</h1>
         <div class="ninja-resources">
-            <span>
-                <img src="/Image/pearl_01c.png" alt="red pearl">@Model.TotalStrength
-            </span>
-            <span>
-                <img src="/Image/pearl_01d.png" alt="green pearl">@Model.TotalAgility
-            </span>
-            <span>
-                <img src="/Image/pearl_01b.png" alt="blue pearl">@Model.TotalIntelligence
-            </span>
-            <span>
-                <img src="/Image/element/coins.png" alt="blue pearl">@Model.Ninja.Currency
-            </span>
+            <div>
+                <span><img src="/Image/element/coins.png" alt="blue pearl">@Model.Ninja.Currency</span>
+                <span><img src="/Image/element/coins.png" alt="blue pearl">@Model.Ninja.Currency</span>
+            </div>
+            <div>
+                <span><img src="/Image/pearl_01c.png" alt="red pearl">@Model.TotalStrength</span>
+                <span><img src="/Image/pearl_01d.png" alt="green pearl">@Model.TotalAgility</span>
+                <span><img src="/Image/pearl_01b.png" alt="blue pearl">@Model.TotalIntelligence</span>
+            </div>
         </div>
-        <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
+        <img class="ninja-img" src="/Image/Ninjafoto.png" alt="Ninja">
+        <div class="ninja-card-filler"></div>
     </div>
 </div>
