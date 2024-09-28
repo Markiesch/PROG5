@@ -8,17 +8,20 @@ public class NinjaViewModel
     {
         Ninja = ninja;
         Categories = categories;
-        Inventory = new List<Equipment>();
     }
     
     public Ninja Ninja { get; set; }
     public List<Category> Categories { get; set; }
     
-    // Inventory: List of Equipment
-    public virtual ICollection<Equipment> Inventory { get; set; }
+    public List<Equipment?> Inventory {
+        get
+        {
+            return Categories.Select(item => Ninja.Equipments
+                .Find(e => e.Id == item.Id)).ToList();
+        } 
+    }
 
-    // Calculated stats
-    public int TotalStrength => Inventory?.Sum(e => e.Strength) ?? 0;
-    public int TotalIntelligence => Inventory?.Sum(e => e.Intelligence) ?? 0;
-    public int TotalAgility => Inventory?.Sum(e => e.Agility) ?? 0;
+    public int TotalStrength => Inventory.Sum(e => e?.Strength ?? 0);
+    public int TotalIntelligence => Inventory.Sum(e => e?.Intelligence ?? 0);
+    public int TotalAgility => Inventory.Sum(e => e?.Agility ?? 0);
 }
