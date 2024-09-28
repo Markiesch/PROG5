@@ -7,9 +7,9 @@
 <header class="container ninja-manager-header">
     <h1>NinjaManager</h1>
     <nav>
-        <a class="btn" href="/home">HOME</a>
-        <a class="btn" href="/ninja">NINJA</a>
-        <a class="btn" href="/shop">SHOP</a>
+        <a class="btn" asp-controller="Home" asp-action="Index">HOME</a>
+        <a class="btn" href="#">NINJA</a>
+        <a asp-controller="Shop" asp-action="Index" asp-route-id="@Model.Ninja.Id" class="btn">SHOP</a>
     </nav>
 </header>
 
