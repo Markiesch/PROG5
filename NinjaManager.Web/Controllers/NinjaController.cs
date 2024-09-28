@@ -33,4 +33,21 @@ public class NinjaController : Controller
         var model = new NinjaViewModel(ninja, categories);
         return View(model);
     }
+
+    [HttpPost]
+    public IActionResult CreateNinja(string Name)
+    {
+        using var context = new MainContext();
+
+        var newNinja = new Ninja();
+        newNinja.Currency = 999;
+        newNinja.Name = Name;
+        var res = context.Ninjas.Add(newNinja);
+        
+        context.SaveChanges();
+
+        Console.WriteLine(res.Entity.Id);
+
+        return RedirectToAction("Index", new { id = res.Entity.Id });
+    }
 }

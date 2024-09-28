@@ -4,7 +4,6 @@
 
 <header class="container">
     <h1>NinjaManager</h1>
-    <button class="btn">Nieuwe Ninja</button>
 </header>
 
 <div class="container home">
@@ -36,7 +35,19 @@
         }
         <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
         <div class="ninja-card-actions">
-            <a asp-controller="Ninja" asp-action="Index" class="btn btn-secondary">NINJA TOEVOEGEN</a>
+            <a id="open-modal-btn" class="btn btn-secondary">NINJA TOEVOEGEN</a>
         </div>
+    </div>
+</div>
+
+<div id="modal">
+    <div class="modal-content">
+        <h2>New ninja</h2>
+        <form asp-controller="Ninja" asp-action="CreateNinja" method="post">
+            <label for="Name">Name:</label>
+            <input type="text" id="Name" name="Name" />
+
+            <button type="submit" class="btn">CREATE NINJA</button>
+        </form>
     </div>
 </div>

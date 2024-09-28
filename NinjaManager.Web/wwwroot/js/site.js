@@ -1,4 +1,17 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const modal = document.getElementById('modal');
+const modelOpenBtn = document.getElementById('open-modal-btn');
+const modelCloseBtn = document.getElementById('close-modal-btn');
 
-// Write your JavaScript code.
+modelOpenBtn?.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+modelCloseBtn?.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
