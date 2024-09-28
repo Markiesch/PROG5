@@ -40,7 +40,6 @@
     grid-template-columns: 3fr 2fr;
     gap: 1rem;
     width: 100%;
-    flex-grow: 1;
 }
 
 .ninja-items-grid {
@@ -249,4 +248,10 @@
 .ninja-card-filler {
     background: var(--primary-color);
     flex-grow: 1;
+}
+
+.page-filler {
+    width: 100%;
+    flex-grow: 1;
+    background: var(--primary-color);
 }
