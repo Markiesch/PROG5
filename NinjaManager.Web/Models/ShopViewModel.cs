@@ -4,17 +4,17 @@ namespace NinjaManager.Web.Models;
 
 public class ShopViewModel
 {
-    public ShopViewModel(int id, List<Equipment> items, List<Category> categories, List<int> selectedCategoryIds)
+    public ShopViewModel(Ninja ninja, List<Equipment> items, List<Category> categories, int? selectedCategoryId)
     {
-        Id = id;
+        Ninja = ninja;
         Items = items;
         Categories = categories;
-        SelectedCategoryIds = selectedCategoryIds;
+        SelectedCategoryId = selectedCategoryId;
     }
 
-    public int Id { get; set; }
+    public Ninja Ninja { get; set; }
     public List<Equipment> Items { get; set; }
     public List<Category> Categories { get; set; }
     
-    public List<int> SelectedCategoryIds { get; set; }
+    public int? SelectedCategoryId { get; set; }
 }

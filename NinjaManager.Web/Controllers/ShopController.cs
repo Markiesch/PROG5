@@ -8,20 +8,21 @@ namespace NinjaManager.Web.Controllers;
 public class ShopController : Controller
 {
     [Route("ninjas/{id}/shop")]
-    public IActionResult Index(int id, [FromQuery] string? selected)
+    public IActionResult Index(int id, [FromQuery] int? selected)
     {
         using var context = new MainContext();
+        var ninja = context.Ninjas.Find(id);
+        if (ninja == null) return NotFound("Ninja not found");
+
         var items = context.Equipments.ToList();
         var categories = context.Categories.ToList();
-
-        List<int> selectedCategoryIds = selected?.Split(',').Select(int.Parse).ToList() ?? new List<int>();
-
-        if (selectedCategoryIds.Any())
+        
+        if (selected != null)
         {
-            items = items.Where(item => selectedCategoryIds.Contains(item.Category.Id)).ToList();
+            items = items.Where(item => selected == item.Category.Id).ToList();
         }
 
-        var model = new ShopViewModel(id, items, categories, selectedCategoryIds);
+        var model = new ShopViewModel(ninja, items, categories, selected);
 
         return View(model);
     }

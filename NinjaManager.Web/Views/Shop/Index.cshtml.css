@@ -3,6 +3,20 @@
     gap: .5rem;
 }
 
+.top-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: end;
+}
+
+.balance-container {
+    display: flex;
+    font-weight: 800;
+    gap: .5rem;
+    padding-bottom: .5rem;
+}
+
 .filter-container {
     transform: translateY(28px);
 }

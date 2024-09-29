@@ -8,24 +8,34 @@
     <h1>NinjaManager</h1>
     <nav>
         <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">HOME</a>
-        <a asp-controller="Ninja" asp-action="Index" asp-route-id="@Model.Id" class="btn btn-secondary">NINJA</a>
+        <a asp-controller="Ninja" asp-action="Index" asp-route-id="@Model.Ninja.Id" class="btn btn-secondary">NINJA</a>
         <a class="btn" href="#">SHOP</a>
     </nav>
 </header>
 
-<div class="container filter-container">
-    <p>FILTERS</p>
-    <div>
-        @foreach (var category in Model.Categories)
-        {
-            <a asp-controller="Shop"
-               asp-action="Index"
-               asp-route-id="@Model.Id"
-               asp-route-selected="@string.Join(",", Model.SelectedCategoryIds.Contains(category.Id) ? Model.SelectedCategoryIds.Except([category.Id]) : Model.SelectedCategoryIds.Concat([category.Id]))"
-               class="btn rounded-0 @(Model.SelectedCategoryIds.Contains(category.Id) ? "" : "btn-secondary")">
-                @category.Name.ToUpper()
-            </a>
-        }
+<div class="container top-container">
+    <div class="balance-container">
+        <img src="/Image/element/coins.png" alt="">
+        <p>@Model.Ninja.Currency</p>
+    </div>
+    <div class="filter-container">
+        <p>FILTERS</p>
+        <div>
+            @foreach (var category in Model.Categories)
+            {
+                <a asp-controller="Shop"
+                   asp-action="Index"
+                   asp-route-id="@Model.Ninja.Id"
+                   asp-route-selected="@(Model.SelectedCategoryId == category.Id ? null : category.Id)"
+                   class="btn rounded-0 @(Model.SelectedCategoryId == category.Id ? "" : "btn-secondary")">
+                    @category.Name.ToUpper()
+                </a>
+            }
+        </div>
+    </div>
+    <div class="balance-container">
+        <p>@Model.Ninja.Currency</p>
+        <img src="/Image/element/coins.png" alt="">
     </div>
 </div>
 
@@ -36,7 +46,7 @@
         <div class="card-container">
             <form asp-controller="Shop" asp-action="BuyItem" method="post">
                 <input type="text" name="id" value="@item.Id">
-                <input type="text" name="ninjaId" value="@Model.Id">
+                <input type="text" name="ninjaId" value="@Model.Ninja.Id">
                 <div class="card @item.Rarity.ToLower()">
                     <div class="card-header">
                         <div class="price-container">
