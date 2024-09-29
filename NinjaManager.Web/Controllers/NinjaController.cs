@@ -7,13 +7,6 @@ namespace NinjaManager.Web.Controllers;
 
 public class NinjaController : Controller
 {
-    private readonly ILogger<NinjaController> _logger;
-
-    public NinjaController(ILogger<NinjaController> logger)
-    {
-        _logger = logger;
-    }
-
     [Route("ninjas/{id}")]
     public IActionResult Index(int id)
     {

@@ -80,16 +80,19 @@ header {
     font-weight: bold;
 }
 
-.btn:hover {
-    cursor: url("/Image/element/hand_point.png"), auto;
-    opacity: 0.8;
-}
-
 .btn-secondary {
     background-color: white;
     color: var(--primary-color);
 }
 
+.btn:hover {
+    cursor: url("/Image/element/hand_point.png"), auto;
+    opacity: 0.8;
+}
+
+.rounded-0 {
+    border-radius: 0;
+}
 
 .rounded {
     border-radius: .25rem;
