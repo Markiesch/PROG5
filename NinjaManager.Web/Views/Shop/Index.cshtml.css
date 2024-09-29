@@ -43,8 +43,8 @@
     background: var(--blue-background);
     border: 5px solid var(--primary-color);
     border-radius: 1.25rem;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
     padding: 2.5rem;
     gap: 1.5rem;
 }
@@ -54,8 +54,6 @@
     padding: 1rem;
     border: 2px solid var(--primary-color);
     background: white;
-    width: 300px;
-    flex: 1 1 15rem;
 }
 
 .card {
@@ -77,10 +75,17 @@
     width: 60%;
     left: 50%;
     top: 5rem;
-    bottom: 1rem;
+    bottom: 1.5rem;
     transform: translateX(-50%);
-    border-radius: 40rem;
+    border-radius: 40rem 40rem 0 0;
     background-color: var(--foreground);
+    transition: transform 0.5s;
+}
+
+
+.card:hover::after {
+    transform: translateX(-50%) scale(1.1);
+    transform-origin: center;
 }
 
 .card-container input {
@@ -140,12 +145,12 @@ img.dot {
 }
 
 img.cover-image {
-    width: 105px;
-    height: 105px;
+    width: 70%;
     padding: 20px;
+    transition: transform 0.5s;
 }
 
-img.cover-image:hover {
+.card:hover .cover-image {
     transform: scale(1.1);
 }
 
