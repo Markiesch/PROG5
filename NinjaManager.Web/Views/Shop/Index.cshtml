@@ -43,7 +43,7 @@
 
     @foreach (var item in Model.Items)
     {
-        <div class="card-container">
+        <div class="card-container @(Model.Ninja.Currency < item.Price || Model.HasItemInCategory(item.CategoryId) ? "item-disabled" :  "")">
             <form asp-controller="Shop" asp-action="BuyItem" method="post">
                 <input type="text" name="id" value="@item.Id">
                 <input type="text" name="ninjaId" value="@Model.Ninja.Id">

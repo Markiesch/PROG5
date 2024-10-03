@@ -70,6 +70,13 @@
     background: white;
 }
 
+.item-disabled .card-header button {
+    pointer-events: none;
+    background: var(--grey-background);
+    color: var(--grey-foreground);
+    border-color: var(--grey-foreground);
+}
+
 .card {
     position: relative;
     z-index: 1;

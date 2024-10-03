@@ -89,3 +89,16 @@
 .ninja-card-empty::after {
     background-color: var(--grey-foreground);
 }
+
+label {
+    display: inline-block;
+    margin-top: .75rem;
+}
+
+input {
+    display: block;
+    border: 1px solid var(--primary-color);
+    border-radius: .25rem;
+    padding: .5rem;
+    margin-bottom: .5rem;
+}

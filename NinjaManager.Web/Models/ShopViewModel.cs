@@ -17,4 +17,9 @@ public class ShopViewModel
     public List<Category> Categories { get; set; }
     
     public int? SelectedCategoryId { get; set; }
+    
+    public bool HasItemInCategory(int categoryId)
+    {
+        return Ninja.Equipments.Any(i => i.CategoryId == categoryId);
+    }
 }

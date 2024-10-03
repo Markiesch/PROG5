@@ -11,7 +11,9 @@ public class ShopController : Controller
     public IActionResult Index(int id, [FromQuery] int? selected)
     {
         using var context = new MainContext();
-        var ninja = context.Ninjas.Find(id);
+        var ninja = context.Ninjas
+            .Include(n => n.Equipments)
+            .FirstOrDefault(n => n.Id == id);
         if (ninja == null) return NotFound("Ninja not found");
 
         var items = context.Equipments.ToList();
