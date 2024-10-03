@@ -40,7 +40,7 @@ public class MainContext : DbContext
 
             // Necklaces
             new Equipment { Id = 6, CategoryId = 2, Img = "necklace_03a", Rarity = "Leather",  Name = "Leather Necklace", Price = 200, Strength = 1, Intelligence = 1, Agility = 0 },
-            new Equipment { Id = 7, CategoryId = 2, Img = "necklace_03b", Rarity = "Iron",  Name = "Iron Necklace", Price = 400, Strength = 3, Intelligence = 2, Agility = 1 },
+            new Equipment { Id = 7, CategoryId = 2, Img = "necklace_03b", Rarity = "I1`ron",  Name = "Iron Necklace", Price = 400, Strength = 3, Intelligence = 2, Agility = 1 },
             new Equipment { Id = 8, CategoryId = 2, Img = "necklace_03c", Rarity = "Gold",  Name = "Golden Necklace", Price = 600, Strength = 5, Intelligence = 3, Agility = 1 },
             new Equipment { Id = 9, CategoryId = 2, Img = "necklace_03d", Rarity = "Diamond",  Name = "Diamond Necklace", Price = 900, Strength = 7, Intelligence = 4, Agility = 2 },
             new Equipment { Id = 10, CategoryId = 2, Img = "necklace_03e", Rarity = "Mythic",  Name = "Mythic Necklace", Price = 1400, Strength = 10, Intelligence = 5, Agility = 3 },

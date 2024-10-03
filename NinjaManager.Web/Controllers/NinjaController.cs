@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Security.Cryptography.X509Certificates;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NinjaManager.Data;
 using NinjaManager.Web.Models;
@@ -42,7 +43,41 @@ public class NinjaController : Controller
         return RedirectToAction("Index", new { id = res.Entity.Id });
     }
 
-    [HttpPost]
+    public IActionResult Delete(int id)
+    {
+        using var context = new MainContext();
+
+        var ninja = context.Ninjas.FirstOrDefault(n => n.Id == id);
+        if (ninja == null)
+        {
+            return NotFound();
+        }
+
+        context.Ninjas.Remove(ninja);
+        context.SaveChanges();
+        
+        return RedirectToAction("Index", "Home");   
+    }
+    
+    public IActionResult Reset(int id)
+    {
+        using var context = new MainContext();
+
+        var ninja = context.Ninjas.Include(n => n.Equipments).FirstOrDefault(n => n.Id == id);
+        if (ninja == null)
+        {
+            return NotFound();
+        }
+
+        ninja.Currency += ninja.GearValue;
+        ninja.Equipments.Clear();   
+        context.SaveChanges();
+        
+        return RedirectToAction("Index", "Home");   
+    }
+
+
+[HttpPost]
     public IActionResult SellEquipment(int id, int equipmentId)
     {
         using var context = new MainContext();
