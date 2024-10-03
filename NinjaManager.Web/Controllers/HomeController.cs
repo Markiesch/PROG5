@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NinjaManager.Data;
 using NinjaManager.Web.Models;
 
@@ -11,7 +12,7 @@ public class HomeController : Controller
     {
         using var context = new MainContext();
 
-        var ninjas = context.Ninjas.ToList();
+        var ninjas = context.Ninjas.Include(n => n.Equipments).ToList();
         
         return View(ninjas);
     }
