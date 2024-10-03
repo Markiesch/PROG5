@@ -55,6 +55,6 @@ public class ShopController : Controller
         ninja.Equipments.Add(item);
         context.SaveChanges();
 
-        return RedirectToAction("Index", new { id = ninjaId });
+        return RedirectToAction("Index",  "Ninja", new { id = ninjaId });
     }
 }
