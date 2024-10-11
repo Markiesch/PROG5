@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NinjaManager.Data;
 using NinjaManager.Web.Models;
 
@@ -12,7 +13,7 @@ public class EditorController : Controller
         using var context = new MainContext();
         var model = new EditorViewModel()
         {
-            Equipments = context.Equipments.ToList()
+            Equipments = context.Equipments.Include(x => x.Category).ToList()
         };
 
         return View(model);

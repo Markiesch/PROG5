@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace NinjaManager.Data;
+﻿namespace NinjaManager.Data;
 
 public class Equipment
 {
@@ -15,5 +13,5 @@ public class Equipment
     public Category Category { get; set; }
     public List<Ninja> Ninjas { get; set; }
 
-    public string Img() => Rarity.ToLower() + "_" + Category.Name.ToLower();
+    public string Img => Rarity.ToLower() + "_" + Category.Name.ToLower();
 }

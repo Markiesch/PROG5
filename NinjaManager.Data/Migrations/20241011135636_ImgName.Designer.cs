@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NinjaManager.Data;
 
@@ -10,9 +11,11 @@ using NinjaManager.Data;
 namespace NinjaManager.Data.Migrations
 {
     [DbContext(typeof(MainContext))]
-    partial class MainContextModelSnapshot : ModelSnapshot
+    [Migration("20241011135636_ImgName")]
+    partial class ImgName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,7 +200,7 @@ namespace NinjaManager.Data.Migrations
                             Intelligence = 2,
                             Name = "Iron Necklace",
                             Price = 400,
-                            Rarity = "Iron",
+                            Rarity = "I1`ron",
                             Strength = 3
                         },
                         new
