@@ -1,0 +1,34 @@
+﻿@model EditorEquipmentViewModel
+
+@{
+    ViewData["Title"] = "Shop";
+}
+
+<header class="container header">
+    <h1>NinjaManager</h1>
+    <nav>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">HOME</a>
+        <a class="btn btn-secondary" asp-controller="Editor" asp-action="Index">EDITOR</a>
+    </nav>
+</header>
+
+<div class="container shop-container">
+    <form asp-action="Create" method="post">
+        <label for="Name">Name</label>
+        <input id="Name" type="text" name="Equipment.Name">
+        <label for="Category">Category</label>
+        <select id="Category" name="Equipment.Category" type="text" asp-items="@Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))"></select>
+        <label for="Rarity">Rarity</label>
+        <select id="Rarity" name="Equipment.Rarity" type="text" asp-items="@Model.Rarities.Select(x => new SelectListItem(x, x))"></select>
+        <label for="Price">Price</label>
+        <input id="Price" name="Equipment.Price" type="number">
+        <label for="Strength">Strength</label>
+        <input id="Strength" name="Equipment.Strength" type="number">
+        <label for="Intelligence">Intelligence</label>
+        <input id="Intelligence" name="Equipment.Intelligence" type="number">
+        <label for="Agility">Agility</label>
+        <input id="Agility" name="Equipment.Agility" type="number">
+        
+        <button class="btn">SAVE ITEM</button>
+    </form>
+</div>

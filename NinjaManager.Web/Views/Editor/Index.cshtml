@@ -1,0 +1,55 @@
+﻿@model EditorViewModel
+
+@{
+    ViewData["Title"] = "Shop";
+}
+
+<header class="container header">
+    <h1>NinjaManager</h1>
+    <nav>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">HOME</a>
+        <a class="btn" href="#">EDITOR</a>
+    </nav>
+</header>
+
+<div class="container shop-container">
+    @foreach (var item in Model.Equipments)
+    {
+        <div class="card-container">
+            <form asp-controller="Shop" asp-action="BuyItem" method="post">
+                <input type="text" name="id" value="@item.Id">
+                <div class="card @item.Rarity.ToLower()">
+                    <div class="card-header">
+                        <div class="price-container">
+                            <img class="price-icon" src="/Image/element/coins.png" alt=""/>
+                            <p>@item.Price</p>
+                        </div>
+                        <button type="submit" class="btn btn-secondary">BUY</button>
+                    </div>
+                    <img class="cover-image" src="@("/Image/" + item.Img + ".png")" alt="@item.Name"/>
+                    <div class="details-container">
+                        <p class="item-name">@item.Name</p>
+                        <div>
+                            <div class="attribute">
+                                <img class="dot" src="/Image/pearl_01c.png" alt="Red Dot"/>
+                                <div>@item.Strength</div>
+                            </div>
+                            <div class="attribute">
+                                <img class="dot" src="/Image/pearl_01b.png" alt="Blue Dot"/>
+                                <div>@item.Intelligence</div>
+                            </div>
+                            <div class="attribute">
+                                <img class="dot" src="/Image/pearl_01d.png" alt="Green Dot"/>
+                                <div>@item.Agility</div>
+                            </div>
+                        </div>
+                        <div class="action-container">
+                            <button class="btn" asp-action="Update">UPDATE</button>
+                            <button class="btn" asp-action="Delete">DELETE</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    }
+</div>

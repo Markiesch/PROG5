@@ -1,0 +1,156 @@
+﻿.header nav {
+    display: flex;
+    gap: .5rem;
+}
+
+.top-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: end;
+}
+
+.chip {
+    background-color: white;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.chip-selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.shop-container {
+    width: 100%;
+    background: var(--blue-background);
+    border: 5px solid var(--primary-color);
+    border-radius: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    padding: 2.5rem;
+    gap: 1.5rem;
+}
+
+.card-container {
+    border-radius: .75rem;
+    padding: 1rem;
+    border: 2px solid var(--primary-color);
+    background: white;
+}
+
+.item-disabled .card-header button {
+    pointer-events: none;
+    background: var(--grey-background);
+    color: var(--grey-foreground);
+    border-color: var(--grey-foreground);
+}
+
+.card {
+    position: relative;
+    z-index: 1;
+    background-color: var(--background);
+    border: 2px solid var(--foreground);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 60%;
+    left: 50%;
+    top: 5rem;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    border-radius: 40rem 40rem 0 0;
+    background-color: var(--foreground);
+    transition: transform 0.5s;
+}
+
+
+.card:hover::after {
+    transform: translateX(-50%) scale(1.1);
+    transform-origin: center;
+}
+
+.card-container input {
+    display: none;
+}
+
+.card-header {
+    display: flex;
+}
+
+.card-header .btn {
+    border-radius: 0 5rem 5rem 0;
+    background: radial-gradient(50% 50% at 50% 50%, #F5E8AB 0%, #FDD170 93.5%);
+    border: 1px solid #874315;
+    border-left: none;
+}
+
+.price-container {
+    border-radius: 5rem 0 0 5rem;
+    display: inline-flex;
+    background: radial-gradient(50% 50% at 50% 50%, #F5E8AB 0%, #FDD170 93.5%);
+    border: 1px solid #874315;
+    align-items: center;
+    font-weight: bold;
+    padding: .25rem 1rem;
+    font-size: 22px;
+    color: #874315;
+    gap: .25rem;
+}
+
+.details-container {
+    background: white;
+    border: 2px solid var(--primary-color);
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.details-container p {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: .5rem 0;
+}
+
+.details-container > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+img.dot {
+    height: 24px;
+    width: 24px;
+    display: inline-block;
+
+}
+
+img.cover-image {
+    width: 70%;
+    padding: 20px;
+    transition: transform 0.5s;
+}
+
+.card:hover .cover-image {
+    transform: scale(1.1);
+}
+
+.attribute {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-container {
+    display: flex;
+    padding: 1rem;
+}
