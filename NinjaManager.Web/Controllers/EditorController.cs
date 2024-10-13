@@ -83,7 +83,7 @@ public class EditorController : Controller
     
     [HttpPost]
     [Route("/editor/equipment/create")]
-    public IActionResult Create(EditorEquipmentViewModel model)
+    public IActionResult CreateItem(EditorEquipmentViewModel model)
     {
         using var context = new MainContext();
         context.Equipments.Add(model.Equipment);

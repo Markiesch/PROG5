@@ -13,11 +13,11 @@
 </header>
 
 <div class="container shop-container">
-    <form asp-action="Create" method="post">
+    <form asp-action="CreateItem" method="post">
         <label for="Name">Name</label>
         <input id="Name" type="text" name="Equipment.Name">
         <label for="Category">Category</label>
-        <select id="Category" name="Equipment.Category" type="text" asp-items="@Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))"></select>
+        <select id="Category" name="Equipment.CategoryId" type="text" asp-items="@Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))"></select>
         <label for="Rarity">Rarity</label>
         <select id="Rarity" name="Equipment.Rarity" type="text" asp-items="@Model.Rarities.Select(x => new SelectListItem(x, x))"></select>
         <label for="Price">Price</label>
