@@ -1,7 +1,7 @@
 ﻿@model EditorViewModel
 
 @{
-    ViewData["Title"] = "Shop";
+    ViewData["Title"] = "Editor";
 }
 
 <header class="container header">
@@ -13,10 +13,9 @@
 </header>
 
 <div class="container shop-container">
-
-    <div class="card-container">
+    <div class="card-container new-card">
         <div class="card card-iron">
-            <h1></h1>
+            <p>NEW ITEM</p>
             <div class="action-container">
                 <a class="btn" asp-action="Create">CREATE</a>
             </div>
@@ -27,17 +26,14 @@
     {
         <div class="card-container">
             <div class="card @item.Rarity.ToLower()">
-                <div class="card-header">
-                    <div class="price-container">
-                        <img class="price-icon" src="/Image/element/coins.png" alt=""/>
-                        <p>@item.Price</p>
-                    </div>
-                    <button type="submit" class="btn btn-secondary">BUY</button>
+                <div class="price-container">
+                    <img class="price-icon" src="/Image/element/coins.png" alt=""/>
+                    <p>@item.Price</p>
                 </div>
                 <img class="cover-image" src="@("/Image/" + item.Img + ".png")" alt="@item.Name"/>
                 <div class="details-container">
                     <p class="item-name">@item.Name</p>
-                    <div>
+                    <div class="stats-container">
                         <div class="attribute">
                             <img class="dot" src="/Image/pearl_01c.png" alt="Red Dot"/>
                             <div>@item.Strength</div>
@@ -52,8 +48,8 @@
                         </div>
                     </div>
                     <div class="action-container">
-                        <a class="btn" asp-action="Update" asp-route-id="@item.Id">UPDATE</a>
-                        <a class="btn" asp-action="Delete">DELETE</a>
+                        <a style="padding-inline: 0; text-align: center" class="btn btn-secondary rounded-0" asp-action="Update" asp-route-id="@item.Id">UPDATE</a>
+                        <a style="padding-inline: 0; text-align: center" class="btn btn-secondary rounded-0" asp-action="Delete">DELETE</a>
                     </div>
                 </div>
             </div>

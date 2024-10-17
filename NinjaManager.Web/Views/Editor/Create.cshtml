@@ -13,22 +13,24 @@
 </header>
 
 <div class="container shop-container">
-    <form asp-action="CreateItem" method="post">
-        <label for="Name">Name</label>
-        <input id="Name" type="text" name="Equipment.Name">
-        <label for="Category">Category</label>
-        <select id="Category" name="Equipment.CategoryId" type="text" asp-items="@Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))"></select>
-        <label for="Rarity">Rarity</label>
-        <select id="Rarity" name="Equipment.Rarity" type="text" asp-items="@Model.Rarities.Select(x => new SelectListItem(x, x))"></select>
-        <label for="Price">Price</label>
-        <input id="Price" name="Equipment.Price" type="number">
-        <label for="Strength">Strength</label>
-        <input id="Strength" name="Equipment.Strength" type="number">
-        <label for="Intelligence">Intelligence</label>
-        <input id="Intelligence" name="Equipment.Intelligence" type="number">
-        <label for="Agility">Agility</label>
-        <input id="Agility" name="Equipment.Agility" type="number">
-        
-        <button class="btn">SAVE ITEM</button>
-    </form>
+    <div style="max-width: 20rem; width: 100%">
+        <form asp-action="CreateItem" method="post">
+            <label for="Name">Name</label>
+            <input id="Name" type="text" name="Equipment.Name" required>
+            <label for="Category">Category</label>
+            <select id="Category" name="Equipment.CategoryId" type="text" asp-items="@Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))"></select>
+            <label for="Rarity">Rarity</label>
+            <select id="Rarity" name="Equipment.Rarity" type="text" asp-items="@Model.Rarities.Select(x => new SelectListItem(x, x))"></select>
+            <label for="Price">Price</label>
+            <input min="1" id="Price" name="Equipment.Price" type="number" required>
+            <label for="Strength">Strength</label>
+            <input min="1" id="Strength" name="Equipment.Strength" type="number" required>
+            <label for="Intelligence">Intelligence</label>
+            <input min="1" id="Intelligence" name="Equipment.Intelligence" type="number" required>
+            <label for="Agility">Agility</label>
+            <input min="1" id="Agility" name="Equipment.Agility" type="number" required>
+
+            <button class="btn">SAVE ITEM</button>
+        </form>
+    </div>
 </div>

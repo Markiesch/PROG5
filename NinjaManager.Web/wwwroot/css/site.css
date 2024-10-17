@@ -148,3 +148,18 @@ header {
     --background: var(--mythic-background);
     --foreground: var(--mythic-foreground);
 }
+
+label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: .25rem;
+}
+
+input, select {
+    border: 2px solid var(--primary-color);
+    border-radius: .25rem;
+    padding: .5rem;
+    display: block;
+    width: 100%;
+    margin-bottom: .75rem;
+}

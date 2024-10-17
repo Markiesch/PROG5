@@ -1,0 +1,11 @@
+﻿.shop-container {
+    width: 100%;
+    background: var(--blue-background);
+    border: 5px solid var(--primary-color);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+
