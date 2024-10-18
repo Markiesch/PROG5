@@ -15,3 +15,7 @@ window.addEventListener('click', (e) => {
         modal.style.display = 'none';
     }
 });
+
+function confirmDelete(ninjaCount) {
+    return confirm(`Are you sure you want to delete the following item? It is currently owned by ${ninjaCount} ninja(s).`);
+}

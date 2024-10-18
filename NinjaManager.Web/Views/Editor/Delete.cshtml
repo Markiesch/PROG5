@@ -1,1 +1,40 @@
-﻿
+﻿@model EditorEquipmentViewModel
+
+@{
+    ViewData["Title"] = "Delete Equipment";
+}
+
+<header class="container header">
+    <h1>NinjaManager</h1>
+    <nav>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">HOME</a>
+        <a class="btn btn-secondary" asp-controller="Editor" asp-action="Index">EDITOR</a>
+    </nav>
+</header>
+
+<div class="container shop-container">
+    <div style="max-width: 20rem; width: 100%">
+        <form asp-action="Delete" method="post" onsubmit="return confirmDelete(@Model.Equipment.Ninjas.Count)">
+            <input type="hidden" asp-for="Equipment.Id" />
+            <label for="name">Name</label>
+            <input id="name" type="text" asp-for="Equipment.Name" readonly>
+            <label for="Category">Category</label>
+            <select id="Category" asp-for="Equipment.CategoryId" asp-items="@Model.Categories.Select(x => new SelectListItem(x.Name, x.Id.ToString()))" disabled>
+            </select>
+            <label for="Rarity">Rarity</label>
+            <select id="Rarity" asp-for="Equipment.Rarity" asp-items="@Model.Rarities.Select(x => new SelectListItem(x, x))" disabled>
+            </select>
+            <label for="Price">Price</label>
+            <input id="Price" asp-for="Equipment.Price" type="number" min="0" readonly>
+            <label for="Strength">Strength</label>
+            <input id="Strength" asp-for="Equipment.Strength" type="number" min="0" readonly>
+            <label for="Intelligence">Intelligence</label>
+            <input id="Intelligence" asp-for="Equipment.Intelligence" type="number" min="0" readonly>
+            <label for="Agility">Agility</label>
+            <input id="Agility" asp-for="Equipment.Agility" type="number" min="0" readonly>
+
+            <button class="btn btn-danger">DELETE ITEM</button>
+        </form>
+    </div>
+</div>
+

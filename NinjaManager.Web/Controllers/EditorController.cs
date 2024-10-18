@@ -91,4 +91,48 @@ public class EditorController : Controller
 
         return RedirectToAction("Index");
     }
+
+    [HttpGet]
+    [Route("/editor/equipment/{id}/delete")]
+    public IActionResult Delete(int id)
+    {
+        using var context = new MainContext();
+        var equipment = context.Equipments.Include(e => e.Ninjas).FirstOrDefault(e => e.Id == id);
+        if (equipment == null)
+        {
+            return NotFound();
+        }
+
+        var categories = context.Categories.ToList();
+
+        var model = new EditorEquipmentViewModel()
+        {
+            Equipment = equipment,
+            Categories = categories,
+        };
+
+        return View(model);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [Route("/editor/equipment/{id}/delete")]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        using var context = new MainContext();
+        var equipment = context.Equipments.Include(e => e.Ninjas).FirstOrDefault(e => e.Id == id);
+        if (equipment == null)
+        {
+            return NotFound();
+        }
+
+        foreach (var ninja in equipment.Ninjas)
+        {
+            ninja.Equipments.Remove(equipment);
+        }
+
+        context.Equipments.Remove(equipment);
+        context.SaveChanges();
+
+        return RedirectToAction("Index");
+    }
 }
