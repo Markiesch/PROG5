@@ -1,7 +1,15 @@
+using NinjaManager.Data;
+using NinjaManager.Data.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MainContext>();
+
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<EquipmentService>();
 
 var app = builder.Build();
 

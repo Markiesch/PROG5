@@ -1,64 +1,54 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NinjaManager.Data;
+using NinjaManager.Data.Services;
 using NinjaManager.Web.Models;
 
 namespace NinjaManager.Web.Controllers;
 
-public class NinjaController : Controller
+public class NinjaController(CategoryService categoryService, NinjaService ninjaService) : Controller
 {
-    [Route("ninjas/{id}")]
+    [HttpGet]
+    [Route("ninjas/{id:int}")]
     public IActionResult Index(int id)
     {
-        using var context = new MainContext();
-
-        var ninja = context.Ninjas
-            .Include(n => n.Equipments)
-            .FirstOrDefault(n => n.Id == id);
+        var ninja = ninjaService.GetNinja(id);
 
         if (ninja == null)
         {
             return NotFound("Ninja not found");
         }
 
-        var categories = context.Categories.ToList();
-
-        var model = new NinjaViewModel(ninja, categories);
+        var model = new NinjaViewModel(ninja, categoryService.GetCategories());
         return View(model);
     }
 
     [HttpPost]
-    public IActionResult CreateNinja(string Name)
+    public IActionResult CreateNinja(string name)
     {
-        using var context = new MainContext();
-
-        var newNinja = new Ninja();
-        newNinja.Currency = 999;
-        newNinja.Name = Name;
-        var res = context.Ninjas.Add(newNinja);
-
-        context.SaveChanges();
-
-        return RedirectToAction("Index", new { id = res.Entity.Id });
-    }
-
-    public IActionResult Delete(int id)
-    {
-        using var context = new MainContext();
-
-        var ninja = context.Ninjas.FirstOrDefault(n => n.Id == id);
-        if (ninja == null)
+        var result = ninjaService.CreateNinja(new Ninja
         {
-            return NotFound();
+            Name = name,
+            Currency = 999
+        });
+
+        if (result == null)
+        {
+            return BadRequest("Failed to create ninja");
         }
 
-        context.Ninjas.Remove(ninja);
-        context.SaveChanges();
-        
-        return RedirectToAction("Index", "Home");   
+        return RedirectToAction("Index", new { id = result.Id });
     }
-    
+
+    [HttpPost]
+    public IActionResult Delete(int id)
+    {
+        var success = ninjaService.DeleteNinja(id);
+        if (!success) return BadRequest("Failed to delete ninja");
+
+        return RedirectToAction("Index", "Home");
+    }
+
     public IActionResult Reset(int id)
     {
         using var context = new MainContext();
@@ -70,14 +60,13 @@ public class NinjaController : Controller
         }
 
         ninja.Currency += ninja.GearValue;
-        ninja.Equipments.Clear();   
+        ninja.Equipments.Clear();
         context.SaveChanges();
-        
-        return RedirectToAction("Index", "Home");   
+
+        return RedirectToAction("Index", "Home");
     }
 
-
-[HttpPost]
+    [HttpPost]
     public IActionResult SellEquipment(int id, int equipmentId)
     {
         using var context = new MainContext();
@@ -96,7 +85,7 @@ public class NinjaController : Controller
         {
             return NotFound();
         }
-        
+
         ninja.Currency += equipment.Price;
         ninja.Equipments.Remove(equipment);
         context.SaveChanges();
