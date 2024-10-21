@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using NinjaManager.Data;
 using NinjaManager.Data.Services;
 using NinjaManager.Web.Models;
 
@@ -13,11 +11,7 @@ public class NinjaController(CategoryService categoryService, NinjaService ninja
     public IActionResult Index(int id)
     {
         var ninja = ninjaService.GetNinja(id);
-
-        if (ninja == null)
-        {
-            return NotFound("Ninja not found");
-        }
+        if (ninja == null) return NotFound("Ninja not found");
 
         var model = new NinjaViewModel(ninja, categoryService.GetCategories());
         return View(model);
@@ -26,21 +20,13 @@ public class NinjaController(CategoryService categoryService, NinjaService ninja
     [HttpPost]
     public IActionResult CreateNinja(string name)
     {
-        var result = ninjaService.CreateNinja(new Ninja
-        {
-            Name = name,
-            Currency = 999
-        });
-
-        if (result == null)
-        {
-            return BadRequest("Failed to create ninja");
-        }
+        var result = ninjaService.CreateNinja(name);
+        if (result == null) return BadRequest("Failed to create ninja");
 
         return RedirectToAction("Index", new { id = result.Id });
     }
 
-    [HttpPost]
+    [HttpGet]
     public IActionResult Delete(int id)
     {
         var success = ninjaService.DeleteNinja(id);
@@ -49,19 +35,11 @@ public class NinjaController(CategoryService categoryService, NinjaService ninja
         return RedirectToAction("Index", "Home");
     }
 
+    [HttpGet]
     public IActionResult Reset(int id)
     {
-        using var context = new MainContext();
-
-        var ninja = context.Ninjas.Include(n => n.Equipments).FirstOrDefault(n => n.Id == id);
-        if (ninja == null)
-        {
-            return NotFound();
-        }
-
-        ninja.Currency += ninja.GearValue;
-        ninja.Equipments.Clear();
-        context.SaveChanges();
+        var success = ninjaService.ResetNinja(id);
+        if (!success) return BadRequest("Failed to reset ninja");
 
         return RedirectToAction("Index", "Home");
     }
@@ -69,26 +47,8 @@ public class NinjaController(CategoryService categoryService, NinjaService ninja
     [HttpPost]
     public IActionResult SellEquipment(int id, int equipmentId)
     {
-        using var context = new MainContext();
-        var ninja = context.Ninjas
-            .Include(n => n.Equipments)
-            .FirstOrDefault(n => n.Id == id);
-
-        if (ninja == null)
-        {
-            return NotFound();
-        }
-
-        var equipment = ninja.Equipments.FirstOrDefault(e => e.Id == equipmentId);
-
-        if (equipment == null)
-        {
-            return NotFound();
-        }
-
-        ninja.Currency += equipment.Price;
-        ninja.Equipments.Remove(equipment);
-        context.SaveChanges();
+        var success = ninjaService.SellEquipment(id, equipmentId);
+        if (!success) return BadRequest("Failed to sell equipment");
 
         return RedirectToAction("Index", new { id });
     }

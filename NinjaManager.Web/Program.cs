@@ -8,6 +8,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<MainContext>();
 
+builder.Services.AddScoped<NinjaService>();
+builder.Services.AddScoped<ShopService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<EquipmentService>();
 

@@ -8,6 +8,7 @@ public class HomeController(NinjaService ninjaService) : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        return View(ninjaService.GetNinjas());
+        var ninjas = ninjaService.GetNinjas();
+        return View(ninjas);
     }
 }

@@ -7,6 +7,7 @@ namespace NinjaManager.Web.Controllers;
 
 public class EditorController(EquipmentService equipmentService, CategoryService categoryService) : Controller
 {
+    [HttpGet]
     [Route("/editor")]
     public IActionResult Index()
     {
