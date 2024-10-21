@@ -12,7 +12,7 @@
     </nav>
 </header>
 
-<div class="container shop-container">
+<div class="container content-background">
     <div style="max-width: 20rem; width: 100%">
         <form asp-action="Delete" method="post" onsubmit="return confirmDelete(@Model.Equipment.Ninjas.Count)">
             <input type="hidden" asp-for="Equipment.Id" />

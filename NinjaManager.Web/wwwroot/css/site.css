@@ -67,6 +67,11 @@ header {
     font-weight: bold;
 }
 
+.header nav {
+    display: flex;
+    gap: .5rem;
+}
+
 .btn {
     background-color: var(--primary-color);
     text-decoration: none;
@@ -100,6 +105,16 @@ header {
 
 .rounded-xl {
     border-radius: 100vw;
+}
+
+.content-background {
+    width: 100%;
+    background: var(--blue-background);
+    border: 5px solid var(--primary-color);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: center;
 }
 
 #modal {
