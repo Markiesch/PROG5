@@ -13,7 +13,11 @@ public class NinjaController(CategoryService categoryService, NinjaService ninja
         var ninja = ninjaService.GetNinja(id);
         if (ninja == null) return NotFound("Ninja not found");
 
-        var model = new NinjaViewModel(ninja, categoryService.GetCategories());
+        var model = new NinjaViewModel
+        {
+            Ninja = ninja,
+            Categories = categoryService.GetCategories()
+        };
         return View(model);
     }
 

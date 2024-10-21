@@ -19,12 +19,13 @@ public class ShopController(
         var ninja = ninjaService.GetNinja(id);
         if (ninja == null) return NotFound("Ninja not found");
 
-        var model = new ShopViewModel(
-            ninja,
-            equipmentService.GetEquipments(selected),
-            categoryService.GetCategories(),
-            selected
-        );
+        var model = new ShopViewModel
+        {
+            Ninja = ninja,
+            Items = equipmentService.GetEquipments(selected),
+            Categories = categoryService.GetCategories(),
+            SelectedCategoryId = selected
+        };
         return View(model);
     }
 
@@ -33,7 +34,7 @@ public class ShopController(
     {
         var error = shopService.BuyItem(id, ninjaId);
         if (error != null) return BadRequest(error);
-        
+
         return RedirectToAction("Index", "Ninja", new { id = ninjaId });
     }
 }

@@ -1,5 +1,4 @@
-﻿using NinjaManager.Data;
-using NinjaManager.Data.Models;
+﻿using NinjaManager.Data.Models;
 
 namespace NinjaManager.Web.Models;
 

@@ -1,45 +1,23 @@
-﻿using NinjaManager.Data;
-using NinjaManager.Data.Models;
+﻿using NinjaManager.Data.Models;
 
 namespace NinjaManager.Web.Models;
 
 public class NinjaViewModel
 {
-    public NinjaViewModel(Ninja ninja, List<Category> categories)
-    {
-        Ninja = ninja;
-        Categories = categories;
-    }
-    
-    public Ninja Ninja { get; set; }
-    public List<Category> Categories { get; set; }
-    
-    public List<NinjaEquipment> Inventory {
-        get
-        {
-            var inventory = new List<NinjaEquipment>();
-            foreach (var category in Categories)
-            {
-                var equipment = Ninja.Equipments.FirstOrDefault(e => e.CategoryId == category.Id);
-                inventory.Add(new NinjaEquipment(category, equipment));
-            }
-            return inventory;
-        } 
-    }
+    public Ninja Ninja { get; init; }
+    public List<Category> Categories { get; init; }
+
+    public List<NinjaEquipment> Inventory => Categories
+        .Select(x => new NinjaEquipment(x, Ninja.Equipments.FirstOrDefault(e => e.CategoryId == x.Id)))
+        .ToList();
 
     public int TotalStrength => Inventory.Sum(e => e.Equipment?.Strength ?? 0);
     public int TotalIntelligence => Inventory.Sum(e => e.Equipment?.Intelligence ?? 0);
     public int TotalAgility => Inventory.Sum(e => e.Equipment?.Agility ?? 0);
 }
 
-public class NinjaEquipment
+public class NinjaEquipment(Category category, Equipment? equipment)
 {
-    public NinjaEquipment(Category category, Equipment? equipment)
-    {
-        Category = category;
-        Equipment = equipment;
-    }
-    
-    public Category Category { get; set; }
-    public Equipment? Equipment { get; set; }
+    public Category Category { get; } = category;
+    public Equipment? Equipment { get; } = equipment;
 }
