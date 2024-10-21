@@ -1,4 +1,6 @@
-﻿namespace NinjaManager.Data.Services;
+﻿using NinjaManager.Data.Models;
+
+namespace NinjaManager.Data.Services;
 
 public class CategoryService(MainContext context)
 {

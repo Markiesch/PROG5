@@ -1,4 +1,4 @@
-﻿namespace NinjaManager.Data;
+﻿namespace NinjaManager.Data.Models;
 
 public class Equipment
 {

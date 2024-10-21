@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NinjaManager.Data;
+using NinjaManager.Data.Models;
 using NinjaManager.Data.Services;
 using NinjaManager.Web.Models;
 

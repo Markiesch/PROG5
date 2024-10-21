@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace NinjaManager.Data;
+﻿namespace NinjaManager.Data.Models;
 
 public class Category
 {

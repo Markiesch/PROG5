@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using NinjaManager.Data.Models;
 
 namespace NinjaManager.Data.Services;
 
