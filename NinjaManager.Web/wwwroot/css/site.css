@@ -37,10 +37,12 @@ body {
     height: 100vh;
     cursor: url("/Image/element/cursor.png"), auto;
     color: var(--primary-color);
+    user-select: none;
 }
 
 img {
     display: block;
+    user-select: none;
 }
 
 a {

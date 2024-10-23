@@ -10,14 +10,23 @@
     </nav>
 </header>
 
-<div class="container home">
-    @foreach (var ninja in Model)
-    {
-        <a asp-controller="Ninja" asp-action="Index" asp-route-id="@ninja.Id" style="display: block">
+<div class="scroll-container">
+    <div class="container scroll-container home">
+        <div class="ninja-card ninja-card-empty">
+            <h2 class="ninja-name">NEW NINJA</h2>
+            <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
+            <div class="ninja-card-footer">
+                <div class="ninja-card-actions">
+                    <a id="open-modal-btn" class="btn btn-secondary">ADD NINJA</a>
+                </div>
+            </div>
+        </div>
 
+        @foreach (var ninja in Model)
+        {
             <div class="ninja-card">
                 <h2 class="ninja-name">@ninja.Name</h2>
-                <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
+                <img class="ninja" src="/Image/Ninjafoto.png" draggable="false" alt="Ninja">
                 <div class="ninja-card-footer">
                     <div class="ninja-resources">
                         <div>
@@ -47,17 +56,7 @@
                     </div>
                 </div>
             </div>
-        </a>
-    }
-
-    <div class="ninja-card ninja-card-empty">
-        <h2 class="ninja-name">NEW NINJA</h2>
-        <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
-        <div class="ninja-card-footer">
-            <div class="ninja-card-actions">
-                <a id="open-modal-btn" class="btn btn-secondary">ADD NINJA</a>
-            </div>
-        </div>
+        }
     </div>
 </div>
 

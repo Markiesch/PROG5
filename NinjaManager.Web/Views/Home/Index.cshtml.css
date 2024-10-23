@@ -1,8 +1,20 @@
-.home {
+.scroll-container {
     width: 100%;
     flex-grow: 1;
+    overflow-x: scroll;
+    cursor: url("/Image/element/drag_cursor.png") 16 16, auto;
+}
+
+.home::-webkit-scrollbar,
+.scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+.home {
     display: flex;
     gap: 1rem;
+    overflow: visible;
+    height: 100%;
 }
 
 .ninja-card {
@@ -11,7 +23,7 @@
     background-color: var(--blue-background);
     border: 5px solid var(--primary-color);
     border-radius: .75rem .75rem 0 0;
-    width: 23rem;
+    flex: 0 0 25rem;
     display: flex;
     flex-direction: column;
 }
