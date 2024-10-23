@@ -13,50 +13,50 @@
 <div class="container home">
     @foreach (var ninja in Model)
     {
-        <div class="ninja-card">
-            <div class="ninja-resources">
-                <div>
-                    <span>
-                        <img src="/Image/element/coins.png" alt="blue pearl">@ninja.Currency
-                    </span>
-                    <span>
-                        <img src="/Image/element/gearvalue.png" alt="blue pearl">@ninja.GearValue
-                    </span>
-                </div>
-                <div>
-                    <span>
-                        <img src="/Image/pearl_01c.png" alt="red pearl">@ninja.TotalStrength
-                    </span>
-                    <span>
-                        <img src="/Image/pearl_01b.png" alt="blue pearl">@ninja.TotalIntelligence
-                    </span>
-                    <span>
-                        <img src="/Image/pearl_01d.png" alt="green pearl">@ninja.TotalAgility
-                    </span>
+        <a asp-controller="Ninja" asp-action="Index" asp-route-id="@ninja.Id" style="display: block">
+
+            <div class="ninja-card">
+                <h2 class="ninja-name">@ninja.Name</h2>
+                <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
+                <div class="ninja-card-footer">
+                    <div class="ninja-resources">
+                        <div>
+                            <span>
+                                <img src="/Image/element/coins.png" alt="blue pearl">@ninja.Currency
+                            </span>
+                            <span>
+                                <img src="/Image/element/gearvalue.png" alt="blue pearl">@ninja.GearValue
+                            </span>
+                        </div>
+                        <div>
+                            <span>
+                                <img src="/Image/pearl_01c.png" alt="red pearl">@ninja.TotalStrength
+                            </span>
+                            <span>
+                                <img src="/Image/pearl_01b.png" alt="blue pearl">@ninja.TotalIntelligence
+                            </span>
+                            <span>
+                                <img src="/Image/pearl_01d.png" alt="green pearl">@ninja.TotalAgility
+                            </span>
+                        </div>
+                    </div>
+                    <div class="ninja-card-actions">
+                        <a asp-controller="Ninja" asp-action="Index" asp-route-id="@ninja.Id" class="btn btn-secondary">SELECT</a>
+                        <a asp-controller="Ninja" asp-action="Delete" asp-route-id="@ninja.Id" class="btn btn-outlined">DELETE</a>
+                        <a asp-controller="Ninja" asp-action="Reset" asp-route-id="@ninja.Id" class="btn btn-outlined">RESET</a>
+                    </div>
                 </div>
             </div>
-            <h2 class="ninja-name">@ninja.Name</h2>
-            <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
-            <div class="ninja-card-actions">
-                <a asp-controller="Ninja" asp-action="Index" asp-route-id="@ninja.Id" class="btn btn-secondary">SELECT</a>
-                <a asp-controller="Ninja" asp-action="Delete" asp-route-id="@ninja.Id" class="btn btn-secondary">DELETE</a>
-                <a asp-controller="Ninja" asp-action="Reset" asp-route-id="@ninja.Id" class="btn btn-secondary">RESET</a>
-            </div>
-        </div>
+        </a>
     }
 
     <div class="ninja-card ninja-card-empty">
-        @if (Model.Count == 0)
-        {
-            <h2>NO NINJA'S</h2>
-        }
-        else
-        {
-            <h2>NEW NINJA</h2>
-        }
+        <h2 class="ninja-name">NEW NINJA</h2>
         <img class="ninja" src="/Image/Ninjafoto.png" alt="Ninja">
-        <div class="ninja-card-actions">
-            <a id="open-modal-btn" class="btn btn-secondary">ADD NINJA </a>
+        <div class="ninja-card-footer">
+            <div class="ninja-card-actions">
+                <a id="open-modal-btn" class="btn btn-secondary">ADD NINJA</a>
+            </div>
         </div>
     </div>
 </div>

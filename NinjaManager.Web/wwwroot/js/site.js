@@ -19,3 +19,10 @@ window.addEventListener('click', (e) => {
 function confirmDelete(ninjaCount) {
     return confirm(`Are you sure you want to delete the following item? It is currently owned by ${ninjaCount} ninja(s).`);
 }
+
+const inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
+    input.addEventListener('input', () => {
+        input.value = input.value.toUpperCase();
+    });
+});

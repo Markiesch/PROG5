@@ -36,6 +36,16 @@ body {
     flex-direction: column;
     height: 100vh;
     cursor: url("/Image/element/cursor.png"), auto;
+    color: var(--primary-color);
+}
+
+img {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .container {
@@ -88,6 +98,11 @@ header {
 .btn-secondary {
     background-color: white;
     color: var(--primary-color);
+}
+
+.btn-outlined {
+    border: 1px solid currentColor;
+    background-color: transparent;
 }
 
 .btn:hover {

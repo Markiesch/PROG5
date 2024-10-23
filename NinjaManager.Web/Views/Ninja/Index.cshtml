@@ -34,8 +34,8 @@
             else
             {
                 <form asp-controller="Ninja" asp-action="SellEquipment" method="post">
-                    <input type="hidden" name="id" value="@Model.Ninja.Id" />
-                    <input type="hidden" name="equipmentId" value="@item.Equipment.Id" />
+                    <input type="hidden" name="id" value="@Model.Ninja.Id"/>
+                    <input type="hidden" name="equipmentId" value="@item.Equipment.Id"/>
                     <div class="ninja-item-container">
                         <div class="ninja-item @item.Equipment.Rarity.ToLower()">
                             <h2 class="rarity-name">@item.Category.Name</h2>
@@ -69,32 +69,33 @@
     </div>
 
     <div class="ninja-card">
-        <h1>@Model.Ninja.Name</h1>
-        <div class="ninja-resources">
-            <div>
-                <span>
-                    <img src="/Image/element/coins.png" alt="blue pearl">@Model.Ninja.Currency
-                </span>
-                <span>
-                    <img src="/Image/element/gearvalue.png" alt="blue pearl">@Model.Ninja.GearValue
-                </span>
-            </div>
-            <div>
-                <span>
-                    <img src="/Image/pearl_01c.png" alt="red pearl">@Model.TotalStrength
-                </span>
-                <span>
-                    <img src="/Image/pearl_01b.png" alt="blue pearl">@Model.TotalIntelligence
-                </span>
-                <span>
-                    <img src="/Image/pearl_01d.png" alt="green pearl">@Model.TotalAgility
-                </span>
-            </div>
-        </div>
+        <h1>@Model.Ninja.Name.ToUpper()</h1>
         <div class="ninja-img-container">
             <img class="ninja-img" src="/Image/ninja/idle.png" alt="Ninja">
         </div>
-        <div class="ninja-card-filler"></div>
+        <div class="ninja-card-filler">
+            <div class="ninja-resources">
+                <div>
+                    <span>
+                        <img src="/Image/element/coins.png" alt="">@Model.Ninja.Currency
+                    </span>
+                    <span>
+                        <img src="/Image/element/gearvalue.png" alt="">@Model.Ninja.GearValue
+                    </span>
+                </div>
+                <div>
+                    <span>
+                        <img src="/Image/pearl_01c.png" alt="">@Model.TotalStrength
+                    </span>
+                    <span>
+                        <img src="/Image/pearl_01b.png" alt="">@Model.TotalIntelligence
+                    </span>
+                    <span>
+                        <img src="/Image/pearl_01d.png" alt="">@Model.TotalAgility
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

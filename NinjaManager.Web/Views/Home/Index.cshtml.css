@@ -34,10 +34,24 @@
     width: 80%;
 }
 
+.ninja-card h2 {
+    padding: 2rem 0;
+    font-weight: 800;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.ninja-card-footer {
+    background-color: var(--primary-color);
+    padding: 2rem;
+    flex-grow: 1;
+}
+
 .ninja-resources {
     background-color: white;
-    margin: .75rem;
-    border: 2px solid #000;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
     border-radius: 10px;
     padding: .5rem;
 }
@@ -47,6 +61,16 @@
     justify-content: space-evenly;
 }
 
+.ninja-resources > div + div {
+    padding-top: 1rem;
+}
+
+.ninja-resources span {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
 .ninja-resources img {
     width: 20px;
     height: 20px;
@@ -54,28 +78,22 @@
 
 .ninja-name {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 800;
-    padding: 1rem 0;
+    padding: .5rem 0;
+    text-transform: uppercase;
+    color: var(--primary-color);
 }
 
 .ninja-card-actions {
     display: flex;
-    align-items: baseline;
-    justify-content: center;
-    padding: 2rem  0;
-    background-color: var(--primary-color);
-    flex-grow: 1;
+    flex-direction: column;
+    text-align: center;
+    gap: .5rem;
 }
 
 .ninja-card-empty {
     background-color: var(--grey-background);
-}
-
-.ninja-card-empty h2 {
-    padding: 2rem 0;
-    font-weight: 800;
-    text-align: center;
 }
 
 .ninja-card-empty .ninja {
