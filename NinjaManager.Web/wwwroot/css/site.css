@@ -146,9 +146,10 @@ header {
 .modal-content {
     background-color: white;
     margin: 15% auto;
-    padding: 20px;
+    padding: 2rem;
     border-radius: 10px;
-    width: min-content;
+    width: 100%;
+    max-width: 20rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     animation: fadeIn 0.4s;
 }
