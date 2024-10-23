@@ -11,7 +11,7 @@ public class Equipment
     public int Agility { get; set; }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
-    public List<Ninja> Ninjas { get; set; }
+    public List<NinjaEquipment> NinjaEquipments { get; set; }
 
-    public string Img => Rarity?.ToLower() + "_" + Category?.Name?.ToLower();
+    public string Img => Rarity.ToLower() + "_" + Category?.Name.ToLower();
 }

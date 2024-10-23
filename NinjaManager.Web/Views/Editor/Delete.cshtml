@@ -14,7 +14,7 @@
 
 <div class="container content-background">
     <div style="max-width: 20rem; width: 100%">
-        <form asp-action="Delete" method="post" onsubmit="return confirmDelete(@Model.Equipment.Ninjas.Count)">
+        <form asp-action="Delete" method="post" onsubmit="return confirmDelete(@Model.Equipment.NinjaEquipments.Count)">
             <input type="hidden" asp-for="Equipment.Id" />
             <label for="name">Name</label>
             <input id="name" type="text" asp-for="Equipment.Name" readonly>

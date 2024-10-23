@@ -8,7 +8,7 @@ public class NinjaViewModel
     public List<Category> Categories { get; init; }
 
     public List<NinjaEquipment> Inventory => Categories
-        .Select(x => new NinjaEquipment(x, Ninja.Equipments.FirstOrDefault(e => e.CategoryId == x.Id)))
+        .Select(x => new NinjaEquipment(x, Ninja.NinjaEquipments.FirstOrDefault(e => e.Equipment.CategoryId == x.Id)?.Equipment))
         .ToList();
 
     public int TotalStrength => Inventory.Sum(e => e.Equipment?.Strength ?? 0);

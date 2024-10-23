@@ -12,6 +12,6 @@ public class ShopViewModel
     
     public bool HasItemInCategory(int categoryId)
     {
-        return Ninja.Equipments.Any(i => i.CategoryId == categoryId);
+        return Ninja.NinjaEquipments.Any(i => i.Equipment.CategoryId == categoryId);
     }
 }

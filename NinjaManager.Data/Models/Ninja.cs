@@ -5,11 +5,11 @@ public class Ninja
     public int Id { get; set; } 
     public string Name { get; set; }
     public int Currency { get; set; }
-    public List<Equipment> Equipments { get; set; }
+    public List<NinjaEquipment> NinjaEquipments { get; set; }
     
-    public int GearValue => Equipments.Sum(e => e.Price);
+    public int GearValue => NinjaEquipments.Sum(e => e.BuyPrice);
     
-    public int TotalStrength => Equipments.Sum(e => e.Strength);
-    public int TotalIntelligence => Equipments.Sum(e => e.Intelligence);
-    public int TotalAgility => Equipments.Sum(e => e.Agility);
+    public int TotalStrength => NinjaEquipments.Sum(e => e.Equipment.Strength);
+    public int TotalIntelligence => NinjaEquipments.Sum(e => e.Equipment.Intelligence);
+    public int TotalAgility => NinjaEquipments.Sum(e => e.Equipment.Agility);
 }

@@ -24,7 +24,7 @@ public class EquipmentService(MainContext context)
     {
         return context.Equipments
             .Include(x => x.Category)
-            .Include(x => x.Ninjas)
+            .Include(x => x.NinjaEquipments)
             .FirstOrDefault(x => x.Id == id);
     }
 
@@ -36,8 +36,6 @@ public class EquipmentService(MainContext context)
 
     public bool UpdateEquipment(Equipment equipment)
     {
-        Console.WriteLine(equipment.Id);
-
         context.Equipments.Update(equipment);
         return context.SaveChanges() > 0;
     }
@@ -45,17 +43,16 @@ public class EquipmentService(MainContext context)
     public bool DeleteEquipment(int id)
     {
         var equipment = context.Equipments
-            .Include(x => x.Ninjas)
+            .Include(x => x.NinjaEquipments)
+            .ThenInclude(ninjaEquipment => ninjaEquipment.Ninja)
             .FirstOrDefault(x => x.Id == id);
 
-        if (equipment == null)
-        {
-            return false;
-        }
+        if (equipment == null) return false;
 
-        foreach (var ninja in equipment.Ninjas)
+        foreach (var ninjaEquipment in equipment.NinjaEquipments.ToList())
         {
-            ninja.Equipments.Remove(equipment);
+            ninjaEquipment.Ninja.Currency += ninjaEquipment.BuyPrice;
+            equipment.NinjaEquipments.Remove(ninjaEquipment);
         }
 
         context.Equipments.Remove(equipment);

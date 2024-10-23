@@ -7,12 +7,18 @@ public class NinjaService(MainContext context)
 {
     public List<Ninja> GetNinjas()
     {
-        return context.Ninjas.Include(n => n.Equipments).ToList();
+        return context.Ninjas
+            .Include(n => n.NinjaEquipments)
+            .ThenInclude(x => x.Equipment)
+            .ToList();
     }
 
     public Ninja? GetNinja(int id)
     {
-        return context.Ninjas.Include(n => n.Equipments).FirstOrDefault(n => n.Id == id);
+        return context.Ninjas
+            .Include(n => n.NinjaEquipments)
+            .ThenInclude(x => x.Equipment)
+            .FirstOrDefault(n => n.Id == id);
     }
 
     public Ninja? CreateNinja(string name)
@@ -34,27 +40,27 @@ public class NinjaService(MainContext context)
     public bool ResetNinja(int id)
     {
         var ninja = context.Ninjas
-            .Include(n => n.Equipments)
+            .Include(n => n.NinjaEquipments)
             .FirstOrDefault(n => n.Id == id);
         if (ninja == null) return false;
 
         ninja.Currency += ninja.GearValue;
-        ninja.Equipments.Clear();
+        ninja.NinjaEquipments.Clear();
         return context.SaveChanges() > 0;
     }
 
     public bool SellEquipment(int id, int equipmentId)
     {
         var ninja = context.Ninjas
-            .Include(n => n.Equipments)
+            .Include(n => n.NinjaEquipments)
             .FirstOrDefault(n => n.Id == id);
         if (ninja == null) return false;
 
-        var equipment = ninja.Equipments.FirstOrDefault(e => e.Id == equipmentId);
-        if (equipment == null) return false;
+        var ninjaEquipment = ninja.NinjaEquipments.FirstOrDefault(e => e.EquipmentId == equipmentId);
+        if (ninjaEquipment == null) return false;
 
-        ninja.Currency += equipment.Price;
-        ninja.Equipments.Remove(equipment);
+        ninja.Currency += ninjaEquipment.BuyPrice;
+        ninja.NinjaEquipments.Remove(ninjaEquipment);
         return context.SaveChanges() > 0;
     }
 }
