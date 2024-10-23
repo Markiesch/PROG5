@@ -93,15 +93,21 @@
     margin: 0.5rem;
 }
 
+.ninja-item-details:has(+ .sell-btn) {
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+}
+
 .ninja-item-img-container {
     flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: end;
+    height: 8rem;
 }
 
 .ninja-item-img-container img {
-    height: 8rem;
+    height: 100%;
 }
 
 .ninja-item-name {
@@ -111,6 +117,9 @@
     font-weight: 700;
     text-transform: uppercase;
     padding: .5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ninja-item-stats {
@@ -232,7 +241,7 @@
 .sell-btn {
     cursor: url("/Image/element/hand_point.png"), auto;
     display: inline-flex;
-    margin: 0 auto;
+    margin: 0 auto calc(0.5rem - 1.25rem);
     align-items: center;
     padding: .5rem .75rem;
     gap: .25rem;
@@ -240,6 +249,8 @@
     border-radius: 5rem;
     color: var(--primary-color);
     background: white;
+    border: 2px solid var(--primary-color);
+    transform: translateY(-50%);
 }
 
 .sell-btn img {
