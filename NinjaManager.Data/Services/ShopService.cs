@@ -23,7 +23,7 @@ public class ShopService(MainContext context)
         if (ninja.Currency < item.Price) return "Not enough currency";
 
         var hasItemInCategory = ninja.NinjaEquipments.Any(e => e.Equipment.Category.Id == item.Category.Id);
-        if (hasItemInCategory) return "Ninja already has item with same category";
+        if (hasItemInCategory) return "You already have a item within this category";
 
         ninja.Currency -= item.Price;
         ninja.NinjaEquipments.Add(

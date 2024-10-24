@@ -14,7 +14,7 @@ public class ShopController(
 ) : Controller
 {
     [Route("ninjas/{id:int}/shop")]
-    public IActionResult Index(int id, [FromQuery] int? selected)
+    public IActionResult Index(int id, [FromQuery] int? selected, string? error = null)
     {
         var ninja = ninjaService.GetNinja(id);
         if (ninja == null) return NotFound("Ninja not found");
@@ -22,6 +22,7 @@ public class ShopController(
         var model = new ShopViewModel
         {
             Ninja = ninja,
+            Error = error,
             Items = equipmentService.GetEquipments(selected),
             Categories = categoryService.GetCategories(),
             SelectedCategoryId = selected
@@ -30,10 +31,14 @@ public class ShopController(
     }
 
     [HttpPost]
-    public IActionResult BuyItem(int id, int ninjaId)
+    public IActionResult BuyItem(int id, int ninjaId, int? selected)
     {
         var error = shopService.BuyItem(id, ninjaId);
-        if (error != null) return BadRequest(error);
+        if (error != null)
+        {
+            TempData["error"] = error;
+            return RedirectToAction("Index", "Shop", new { id = ninjaId, selected });
+        }
 
         return RedirectToAction("Index", "Ninja", new { id = ninjaId });
     }

@@ -40,20 +40,29 @@
 </div>
 
 <div class="container shop-container">
-
     @foreach (var item in Model.Items)
     {
-        <div class="card-container @(Model.Ninja.Currency < item.Price || Model.HasItemInCategory(item.CategoryId) ? "item-disabled" :  "")">
+        <div class="card-container">
             <form asp-controller="Shop" asp-action="BuyItem" method="post">
                 <input type="text" name="id" value="@item.Id">
                 <input type="text" name="ninjaId" value="@Model.Ninja.Id">
+                <input type="text" name="selected" value="@Model.SelectedCategoryId">
                 <div class="card @item.Rarity.ToLower()">
                     <div class="card-header">
-                        <div class="price-container">
-                            <img class="price-icon" src="/Image/element/coins.png" alt=""/>
-                            <p>@item.Price</p>
-                        </div>
-                        <button type="submit" class="btn btn-secondary">BUY</button>
+                        @if (Model.HasItem(item.Id))
+                        {
+                            <div class="already-owned">
+                                <p>ALREADY OWNED</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="price-container">
+                                <img class="price-icon" src="/Image/element/coins.png" alt=""/>
+                                <p>@item.Price</p>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">BUY</button>
+                        }
                     </div>
                     <img class="cover-image" src="@("/Image/" + item.Img + ".png")" alt="@item.Name"/>
                     <div class="details-container">
@@ -78,3 +87,15 @@
         </div>
     }
 </div>
+
+
+@if (TempData.ContainsKey("error"))
+{
+    <div id="modal" class="modal-open">
+        <div class="modal-content error-container">
+            <h2>@TempData["error"]</h2>
+
+            <button id="close-modal-btn" class="btn">close</button>
+        </div>
+    </div>
+}
