@@ -1,0 +1,8 @@
+﻿.warning {
+  border: 2px solid var(--primary-color);
+  border-radius: .5rem;
+  background-color: white;
+  padding: .5rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}

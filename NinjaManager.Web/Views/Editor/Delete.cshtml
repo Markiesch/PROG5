@@ -14,8 +14,8 @@
 
 <div class="container content-background">
     <div style="max-width: 20rem; width: 100%">
-        <form asp-action="Delete" method="post" onsubmit="return confirmDelete(@Model.Equipment.NinjaEquipments.Count)">
-            <input type="hidden" asp-for="Equipment.Id" />
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Equipment.Id"/>
             <label for="name">Name</label>
             <input id="name" type="text" asp-for="Equipment.Name" readonly>
             <label for="Category">Category</label>
@@ -33,8 +33,12 @@
             <label for="Agility">Agility</label>
             <input id="Agility" asp-for="Equipment.Agility" type="number" min="0" readonly>
 
-            <button class="btn btn-danger">DELETE ITEM</button>
+            @if (Model.Equipment.NinjaEquipments.Count > 0)
+            {
+                <div class="warning">Warning! @Model.Equipment.NinjaEquipments.Count ninja(s) bought this item. Deleting this item will restore all coins to the ninja.</div>
+            }
+
+            <button class="btn btn-danger" type="submit">DELETE ITEM</button>
         </form>
     </div>
 </div>
-
