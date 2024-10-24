@@ -41,6 +41,7 @@ public class MainContext : DbContext
         builder.Entity<Ninja>(entity =>
         {
             entity.HasKey(x => x.Id);
+            entity.Property(x => x.Name).HasMaxLength(255);
             entity.HasMany(x => x.NinjaEquipments)
                 .WithOne(x => x.Ninja);
         });
@@ -48,6 +49,13 @@ public class MainContext : DbContext
         builder.Entity<Equipment>(entity =>
         {
             entity.HasKey(x => x.Id);
+            entity.Property(x => x.Name).HasMaxLength(255);
+            entity.Property(x => x.Rarity).HasMaxLength(50);
+
+            entity.HasOne(x => x.Category)
+                .WithMany(x => x.Equipments)
+                .HasForeignKey(x => x.CategoryId);
+
             entity.HasMany(x => x.NinjaEquipments)
                 .WithOne(x => x.Equipment);
         });
@@ -55,6 +63,7 @@ public class MainContext : DbContext
         builder.Entity<Category>(entity =>
         {
             entity.HasKey(x => x.Id);
+            entity.Property(x => x.Name).HasMaxLength(50);
             entity.HasMany(x => x.Equipments)
                 .WithOne(x => x.Category);
         });

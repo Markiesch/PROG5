@@ -8,7 +8,6 @@ public class Ninja
     public List<NinjaEquipment> NinjaEquipments { get; set; }
     
     public int GearValue => NinjaEquipments.Sum(e => e.BuyPrice);
-    
     public int TotalStrength => NinjaEquipments.Sum(e => e.Equipment.Strength);
     public int TotalIntelligence => NinjaEquipments.Sum(e => e.Equipment.Intelligence);
     public int TotalAgility => NinjaEquipments.Sum(e => e.Equipment.Agility);
